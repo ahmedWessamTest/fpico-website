@@ -1,0 +1,74 @@
+<header
+  class="w-full flex items-center justify-end md:justify-between gap-y-5 flex-wrap relative lg:h-[162px] mb-5"
+>
+  <!-- Logo and Title Section -->
+  <div class="flex items-center gap-4">
+    <img
+      loading="eager"
+      fetchpriority="high"
+      class="transform-logo-animation w-[130px] h-[130px] object-contain"
+      width="130"
+      height="130"
+      src="/images/DownloadSection/logo-light.webp"
+      alt="FPICO"
+      decoding="async"
+    />
+
+    <div class="flex flex-col">
+      <p
+        class="t_ngcontent-ng-c2595099305ext-main text-[25px] lg:text-[45px] font-bold"
+      >
+        {{ title | translate }}
+      </p>
+
+      @if (!order) {
+      <div class="text-sm text-lighter font-medium mt-2">
+        <p>{{ desc01 | translate }}</p>
+        <p>{{ desc02 | translate }}</p>
+      </div>
+      }
+
+      <p class="text-[25px] lg:text-[45px] font-bold">
+        {{ title02 | translate }}
+      </p>
+
+      @if (order) {
+      <div class="text-sm text-lighter mt-2">
+        <p>{{ desc01 | translate }}</p>
+        <p>{{ desc02 | translate }}</p>
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- Navigation Button -->
+  <nav class="flex justify-end">
+    @if (!isProjects) {
+    <a
+      class="btn-pages p-5 lg:py-[33px] lg:px-[35px] no-underline my-5 inline-block"
+      [routerLink]="[
+        '/',
+        languageService.selectedLanguage$ | async,
+        'services'
+      ]"
+      role="button"
+      [attr.aria-label]="'Pages.projects.main-btn' | translate"
+    >
+      {{ "Pages.projects.main-btn" | translate }}
+    </a>
+    } @else {
+    <a
+      class="btn-pages p-5 lg:p-[35px] no-underline my-5 inline-block"
+      [routerLink]="[
+        '/',
+        languageService.selectedLanguage$ | async,
+        'projects'
+      ]"
+      role="button"
+      [attr.aria-label]="'Pages.projects.main-btn' | translate"
+    >
+      {{ "Pages.projects.main-btn" | translate }}
+    </a>
+    }
+  </nav>
+</header>

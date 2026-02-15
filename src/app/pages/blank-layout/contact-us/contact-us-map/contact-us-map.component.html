@@ -1,0 +1,97 @@
+@if (allLinks) {
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
+  <div class="lg:col-span-4">
+    <div class="p-6 py-12 bg-[#2b2b2b] rounded-xl h-full">
+      <div class="border-b border-light border-opacity-10 mb-6 pb-6">
+        <p class="mb-4">
+          {{ "Pages.contact-us-page.contact.email" | translate }}
+        </p>
+        <div class="mb-2">
+          <!-- href="mailto:info@fpico.org" -->
+          <a
+            [href]="'mailto:' + allLinks.contact.main_email"
+            class="text-lighter text-[13px] no-underline mb-2"
+            aria-label="Visit FPICO website"
+            >{{ allLinks.contact.main_email }}</a
+          >
+        </div>
+        <div>
+          <p class="mb-4">
+            {{ "Pages.contact-us-page.contact.phone" | translate }}
+          </p>
+          <div class="mb-2">
+            <!-- href="tel:+9660558200003" -->
+            <a
+              [href]="'tel:' + allLinks.contact.contat_first_phone"
+              class="text-lighter text-[13px] no-underline mb-2"
+              aria-label="Call +966 055 820 0003"
+              >{{ allLinks.contact.contat_first_phone }}</a
+            >
+          </div>
+          <div>
+            <!-- href="tel:+9660534103237" -->
+            <a
+              [href]="'tel:' + allLinks.contact.contact_second_phone"
+              class="text-lighter text-[13px] no-underline mb-2"
+              aria-label="Call +966 053 410 3237"
+            >
+              {{ allLinks.contact.contact_second_phone }}</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-12 items-center">
+        <p
+          class="col-span-9 text-white text-sm mb-3 px-4 text-[18px] font-semibold"
+        >
+          {{ "Pages.contact-us-page.contact.text01" | translate }}
+          <span class="block">
+            {{ "Pages.contact-us-page.contact.text02" | translate }}
+          </span>
+        </p>
+        <div class="col-span-3">
+          <!-- <img
+                class="w-full"
+                src="/images/contact_us_page/qr.png"
+                alt="fpico"
+              /> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="lg:col-span-8">
+    <div class="h-full">
+      <div class="border-b border-light border-opacity-10 mb-2 pb-2">
+        <img
+          loading="lazy"
+          class="w-full rounded"
+          src="/images/contact_us_page/map.png"
+          alt="FPICO MAP"
+        />
+        <p class="my-2 text-lighter font-semibold">
+          {{ "Pages.contact-us-page.map-section.title05" | translate }}
+        </p>
+      </div>
+      <p class="mb-5">
+        @if (isRTL) {
+        {{ allLinks.contact.ar_address }}
+        }@else {
+        {{ allLinks.contact.en_address }}
+        }
+        <!-- <span>{{
+            "Pages.contact-us-page.map-section.title07" | translate
+          }}</span> -->
+      </p>
+
+      <a
+        [href]="allLinks.contact.map_link"
+        target="_blank"
+        class="btn-outline-main text-[18px] text-center font-semibold px-4 py-2 rounded max-w-[300px] h-fit block"
+      >
+        {{ "Pages.contact-us-page.map-section.title08" | translate }}
+      </a>
+    </div>
+  </div>
+</div>
+}

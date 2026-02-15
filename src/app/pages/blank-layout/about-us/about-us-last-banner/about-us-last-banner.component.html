@@ -1,0 +1,56 @@
+<div class="flex flex-wrap justify-between my-5">
+  <div class="w-full md:w-4/12">
+    <div class="p-3">
+      <h2 class="text-white !text-[24px] mb-3">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_stand_for_title }}
+        } @else {
+        {{ allAboutData.aboutdata.en_stand_for_title }}
+        }
+      </h2>
+      <p class="text-lighter text-15">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_stand_for_text }}
+        } @else {
+        {{ allAboutData.aboutdata.en_stand_for_text }}
+        }
+      </p>
+    </div>
+  </div>
+  <div class="w-full md:w-4/12">
+    <div class="p-3">
+      <h2 class="text-white !text-[24px] mb-3">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_mission_title }}
+        } @else {
+        {{ allAboutData.aboutdata.en_mission_title }}
+        }
+      </h2>
+      <p class="text-lighter text-15">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_mission_text }}
+        } @else {
+        {{ allAboutData.aboutdata.en_mission_text }}
+        }
+      </p>
+    </div>
+  </div>
+  <div class="w-full md:w-4/12">
+    <div class="p-3">
+      <h2 class="text-white !text-[24px] mb-3">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_vision_title }}
+        } @else {
+        {{ allAboutData.aboutdata.en_vision_title }}
+        }
+      </h2>
+      <p class="text-lighter text-15">
+        @if (isRTL) {
+        {{ allAboutData.aboutdata.ar_vision_text }}
+        } @else {
+        {{ allAboutData.aboutdata.en_vision_text }}
+        }
+      </p>
+    </div>
+  </div>
+</div>

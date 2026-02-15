@@ -1,0 +1,67 @@
+<section aria-label="Why Choose Us">
+  <div
+    class="container mx-auto relative overflow-hidden z-10 capitalize rounded"
+  >
+    <header
+      [innerHTML]="'home.about.us.two.title' | translate | safeHtml"
+      class="text-center pb-2 pt-5 md:py-20"
+    ></header>
+    <div class="pb-4">
+      @defer {
+      <div class="pb-20 mb-20 w-11/12 mx-auto">
+        <owl-carousel-o [options]="customOptions">
+          @for (item of Whyus(); track item.id) { @if (item.active_status == 1)
+          {
+          <ng-template carouselSlide>
+            <div class="wrapper">
+              <div class="images_carousel">
+                <!-- [innerHTML]="
+                        'home.about.carousel.about.carousel.slide01'
+                          | translate
+                          | safeHtml
+                      " -->
+                <div>
+                  <div class="images_carousel">
+                    <p class="text-lighter text-main-font mb-0">
+                      {{ $index }}
+                    </p>
+                    <h2 class="text-white text-2xl">
+                      @if (isRTL()) {
+                      {{ item.ar_why_us_title }}
+                      }@else {
+                      {{ item.en_why_us_title }}
+                      }
+                    </h2>
+                    <p class="text-lighter">
+                      @if (isRTL()) {
+                      {{ item.ar_why_us_text }}
+                      }@else {
+                      {{ item.en_why_us_text }}
+                      }
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          } }
+        </owl-carousel-o>
+      </div>
+      }
+    </div>
+    <div class="absolute inset-[-2px] -z-10 h-full">
+      <video
+        #videoElement
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        class="video-like-image"
+        aria-hidden="true"
+      >
+        <source src="/images/DownloadSection/2VVVVFFF.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</section>

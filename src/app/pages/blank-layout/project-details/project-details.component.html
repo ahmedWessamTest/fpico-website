@@ -1,0 +1,255 @@
+@if (projectDetails) {
+<section class="capitalize my-5 relative z-10 overflow-hidden">
+  <!-- video -->
+  <div class="absolute inset-x-0 top-0 bg-black/75 text-center">
+    <!-- #videoElement -->
+    <video
+      #videoElement
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      class="object-cover relative -z-10 h-[174px] w-full"
+      width="1920"
+      height="174"
+      style="aspect-ratio: 11/1"
+    >
+      <source src="/images/1.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <div class="container mx-auto px-4 text-white">
+    <!-- section and title -->
+    <div class="flex flex-col justify-center mb-8">
+      <div class="w-full flex items-center flex-grow-1">
+        <app-pages-header
+          class="w-full"
+          [title]="'Pages.projects.title02'"
+          [title02]="''"
+          [desc01]="'Pages.projects.title-desc01'"
+          [desc02]="'Pages.projects.title-desc02'"
+        ></app-pages-header>
+      </div>
+    </div>
+
+    <div class="Details_related_images_bg">
+      <!-- Second Section -->
+      <div class="flex flex-col md:flex-row">
+        <!-- section Text -->
+        <div class="w-full md:w-7/12 flex justify-start items-start">
+          <div>
+            <!-- <h1>{{ currentProject.project_name | translate }}</h1> -->
+            <h1>
+              @if (isRTL) {
+              {{ projectDetails.project.ar_service_title }}
+              } @else {
+              {{ projectDetails.project.en_service_title }}
+              }
+            </h1>
+            <h3 class="text-white text-sm leading-relaxed mb-3"></h3>
+            @if (isRTL) {
+            <div
+              class="text-gray-400 text-sm leading-relaxed"
+              [innerHTML]="projectDetails.project.ar_service_text | safeHtml"
+            ></div>
+            } @else {
+            <div
+              class="text-gray-400 text-sm leading-relaxed"
+              [innerHTML]="projectDetails.project.en_service_text | safeHtml"
+            ></div>
+
+            }
+          </div>
+        </div>
+
+        <!-- section Image -->
+        <div class="w-full md:w-5/12 mt-4 md:mt-0">
+          <div>
+            <figure class="image_border main_image_animation p-2">
+              <img
+                loading="lazy"
+                [src]="
+                  WEB_SITE_BASE_URL_IMAGE +
+                  'service/' +
+                  projectDetails.project.main_image
+                "
+                class="w-full h-[500px] object-cover"
+                alt="FPICO"
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+      <owl-carousel-o [options]="customOptions">
+        @for (imageGroup of groupedImages; track $index) {
+        <ng-template carouselSlide>
+          <!-- Details Image -->
+          <div class="my-5">
+            <div class="flex flex-col gap-x-3 md:flex-row">
+              <div class="w-full md:w-1/2">
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden h-full"
+                >
+                  @if (imageGroup[4]) {
+                  <div class="md:col-span-1 flex-grow">
+                    <div
+                      (click)="
+                        openModal(
+                          WEB_SITE_BASE_URL_IMAGE +
+                            'service/' +
+                            imageGroup[4].main_image
+                        )
+                      "
+                      class="h-full imageContainer-hover"
+                    >
+                      <img
+                        loading="lazy"
+                        class="w-full object-cover h-full rounded-lg"
+                        [src]="
+                          WEB_SITE_BASE_URL_IMAGE +
+                          'service/' +
+                          imageGroup[4].main_image
+                        "
+                        alt="FPICO"
+                      />
+                    </div>
+                  </div>
+                  } @if (imageGroup[3]) {
+                  <div class="md:col-span-1 flex-grow">
+                    <div
+                      (click)="
+                        openModal(
+                          WEB_SITE_BASE_URL_IMAGE +
+                            'service/' +
+                            imageGroup[3].main_image
+                        )
+                      "
+                      class="h-full imageContainer-hover"
+                    >
+                      <img
+                        loading="lazy"
+                        class="w-full object-cover h-full rounded-lg"
+                        [src]="
+                          WEB_SITE_BASE_URL_IMAGE +
+                          'service/' +
+                          imageGroup[3].main_image
+                        "
+                        alt="FPICO"
+                      />
+                    </div>
+                  </div>
+                  } @if (imageGroup[2]) {
+                  <div class="md:col-span-1 flex-grow">
+                    <div
+                      (click)="
+                        openModal(
+                          WEB_SITE_BASE_URL_IMAGE +
+                            'service/' +
+                            imageGroup[2].main_image
+                        )
+                      "
+                      class="h-full imageContainer-hover"
+                    >
+                      <img
+                        loading="lazy"
+                        class="w-full object-cover h-full rounded-lg"
+                        [src]="
+                          WEB_SITE_BASE_URL_IMAGE +
+                          'service/' +
+                          imageGroup[2].main_image
+                        "
+                        alt="FPICO"
+                      />
+                    </div>
+                  </div>
+                  } @if (imageGroup[1]) {
+                  <div class="md:col-span-1 flex-grow">
+                    <div
+                      (click)="
+                        openModal(
+                          WEB_SITE_BASE_URL_IMAGE +
+                            'service/' +
+                            imageGroup[1].main_image
+                        )
+                      "
+                      class="h-full imageContainer-hover"
+                    >
+                      <img
+                        loading="lazy"
+                        class="w-full object-cover h-full rounded-lg"
+                        [src]="
+                          WEB_SITE_BASE_URL_IMAGE +
+                          'service/' +
+                          imageGroup[1].main_image
+                        "
+                        alt="FPICO"
+                      />
+                    </div>
+                  </div>
+                  }
+                </div>
+              </div>
+              <div
+                class="h-full"
+                [ngClass]="{
+                  'w-full': imageGroup.length == 1,
+                  'w-full md:w-1/2': imageGroup.length != 1
+                }"
+              >
+                <div
+                  class="imageContainer-hover"
+                  (click)="
+                    openModal(
+                      WEB_SITE_BASE_URL_IMAGE +
+                        'service/' +
+                        imageGroup[0].main_image
+                    )
+                  "
+                >
+                  @if (imageGroup[0]) {
+
+                  <img
+                    loading="lazy"
+                    class="w-full h-[524px] object-cover rounded-lg"
+                    [src]="
+                      WEB_SITE_BASE_URL_IMAGE +
+                      'service/' +
+                      imageGroup[0].main_image
+                    "
+                    alt="FPICO"
+                  />
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        }
+      </owl-carousel-o>
+    </div>
+
+    <!-- Download PDF section -->
+    <div class="my-5">
+      <app-h-download-pdf-section></app-h-download-pdf-section>
+    </div>
+  </div>
+</section>
+
+}
+
+<!-- Modal -->
+@if (selectedImage.length > 0) {
+<div
+  (click)="closeModal()"
+  class="fixed inset-0 z-30 p-5 bg-black/75 flex justify-center items-center"
+>
+  <div class="lightBoxContnet">
+    <img
+      loading="lazy"
+      [src]="selectedImage"
+      class="max-w-full max-h-[80vh]"
+      role="presentation"
+    />
+  </div>
+</div>
+}

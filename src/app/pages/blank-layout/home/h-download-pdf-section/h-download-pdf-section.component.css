@@ -1,0 +1,16 @@
+img {
+  margin: auto;
+}
+
+::ng-deep .block.my-2 {
+  margin: 20px auto !important;
+  transform: translateX(85%) !important;
+}
+
+.custom-btn {
+  border-radius: 5px !important;
+}
+::ng-deep .see-more-pic img {
+  margin: auto;
+  max-width: 112px !important;
+}

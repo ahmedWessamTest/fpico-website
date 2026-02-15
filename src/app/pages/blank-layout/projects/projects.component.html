@@ -1,0 +1,133 @@
+@if (allProjectsData) {
+<section class="capitalize my-5" aria-labelledby="projects-main-title">
+  <h3 id="projects-main-title" class="sr-only">FIPCO Our Projects</h3>
+  <div class="container mx-auto px-4 text-white">
+    <!-- section and title -->
+    <div class="flex flex-col justify-between">
+      <div class="w-full flex items-center">
+        <app-pages-header
+          class="w-full"
+          [title]="'Pages.projects.title02'"
+          [title02]="''"
+          [desc01]="'Pages.projects.title-desc01'"
+          [desc02]="'Pages.projects.title-desc02'"
+        ></app-pages-header>
+      </div>
+
+      <!-- Home Main Image -->
+      <div class="w-full">
+        <div class="my-5">
+          <img
+            class="w-full banner-animation"
+            src="/images/projects-page/page/main_banner.png"
+            alt="FPICO Projects Showcase"
+            role="presentation"
+            fetchpriority="high"
+            loading="eager"
+            width="1200"
+            height="600"
+            style="aspect-ratio: 2/1"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- about us banner -->
+    <app-about-banner-section
+      [isRTL]="isRTL"
+      [features]="allProjectsData.features"
+      aria-labelledby="about-banner-title"
+    ></app-about-banner-section>
+
+    <!-- Projects -->
+    <div class="text-center my-5" aria-labelledby="projects-section-title">
+      <!-- header -->
+      <div>
+        <h2
+          id="projects-section-title"
+          class="text-light"
+          [innerHTML]="
+            'Pages.Home.our-projects-section.title' | translate | safeHtml
+          "
+        ></h2>
+        <p class="text-lighter mb-4">
+          {{ "Pages.Home.our-projects-section.title-desc" | translate }}
+          <span class="block">{{
+            "Pages.Home.our-projects-section.title-desc02" | translate
+          }}</span>
+        </p>
+      </div>
+
+      <!-- all Projects -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3" role="list">
+        @for (project of allProjectsData.projects; track project.id) {
+        <div
+          [ngClass]="{
+            'md:col-span-2': $index === 6
+          }"
+          class="bg-transparent"
+          role="listitem"
+        >
+          <div class="h-full bg-transparent">
+            <a
+              class="no-underline h-full"
+              [routerLink]="[
+                '/',
+                languageService.selectedLanguage$ | async,
+                'projects-details',
+                project.id
+              ]"
+              [attr.aria-label]="
+                isRTL
+                  ? 'View details of ' + project.ar_service_title
+                  : 'View details of ' + project.en_service_title
+              "
+            >
+              <figure
+                class="project-card relative bg-transparent rounded-xl m-0 p-0 h-full"
+                style="height: 250px !important"
+              >
+                <img
+                  loading="lazy"
+                  class="w-full h-full rounded-lg object-cover project-image"
+                  [src]="
+                    WEB_SITE_BASE_URL_IMAGE + 'service/' + project.main_image
+                  "
+                  [alt]="
+                    isRTL ? project.ar_service_title : project.en_service_title
+                  "
+                />
+                <figcaption
+                  class="project-overlay absolute inset-0 w-full h-full flex justify-center items-center bg-black/50"
+                >
+                  @if (isRTL) {
+                  <h3 class="text-white">
+                    {{ project.ar_service_title | translate }}
+                  </h3>
+                  }@else {
+                  <h3 class="text-white">
+                    {{ project.en_service_title | translate }}
+                  </h3>
+                  }
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+
+    <!-- Download PDF section -->
+    <div class="my-5">
+      <app-h-download-pdf-section></app-h-download-pdf-section>
+    </div>
+
+    <!-- Contact Us Section With Map -->
+    <div>
+      <app-contact-us-map></app-contact-us-map>
+    </div>
+  </div>
+</section>
+
+}

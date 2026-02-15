@@ -1,0 +1,10 @@
+.form_container {
+  min-width: 300px !important;
+}
+
+@media screen and (min-width: 992px) {
+  .form_Wrapper {
+    position: absolute;
+    transform: translateX(-50%);
+  }
+}

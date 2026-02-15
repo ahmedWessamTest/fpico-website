@@ -1,0 +1,23 @@
+@font-face {
+  font-family: "Cairo";
+  src: url("/fonts/Cairo/Cairo-VariableFont_slnt\,wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+.fs-cairo {
+  font-family: "Cairo", serif !important;
+}
+
+.Inter-font {
+  font-family: "Inter", serif;
+}
+
+.pi {
+  font-family: "primeicons" !important;
+}

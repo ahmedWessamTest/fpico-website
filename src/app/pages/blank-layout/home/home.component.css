@@ -1,0 +1,9 @@
+.foundation-decore {
+  width: 100%;
+  height: 100px;
+  background-image: url(/images/foundation-day/decoration-1.png);
+  background-position: center;
+  mix-blend-mode: exclusion;
+  background-repeat: repeat-x;
+  margin-top: 10px;
+}

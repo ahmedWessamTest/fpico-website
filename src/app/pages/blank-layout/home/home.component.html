@@ -1,0 +1,106 @@
+<main class="min-h-screen">
+  <app-a-hero-section [isRTL]="isRTL"></app-a-hero-section>
+  @if (isFoundationDay) {
+    <div class="foundation-decore container mx-auto"></div>
+  }
+</main>
+@if (isFoundationDay) {
+  <div class="container mx-auto">
+    <img
+      src="/images/foundation-day/banner.png"
+      loading="lazy"
+      decoding="async"
+      alt="saudi founding day"
+      class="w-full h-auto"
+    />
+  </div>
+}
+@if (allHomeData) {
+  <article>
+    <div class="relative">
+      @if (isFoundationDay) {
+        <img
+          src="/images/foundation-day/decoration-2.png"
+          alt=""
+          role="presentation"
+          class="absolute inset-y-0 end-0 h-full w-[86px] mix-blend-color-burn -z-10"
+        />
+      }
+      <app-b-manager-message
+        [isRTL]="isRTL"
+        [ChairMessage]="allHomeData?.chairMessage ?? null"
+      />
+      @defer (on idle) {
+        <app-c-about-us [AboutData]="allHomeData.aboutData" [isRTL]="isRTL" />
+      } @placeholder {
+        <div
+          class="min-h-[200px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
+          role="status"
+          aria-label="Loading about us section"
+        ></div>
+      }
+
+      @defer (on idle) {
+        <app-d-our-services [Service]="allHomeData.services" [isRTL]="isRTL" />
+      } @placeholder {
+        <div
+          class="min-h-[200px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
+          role="status"
+          aria-label="Loading services section"
+        ></div>
+      }
+
+      @defer (on idle) {
+        <app-e-about-us [Whyus]="allHomeData.whyus" [isRTL]="isRTL" />
+      } @placeholder {
+        <div
+          class="min-h-[200px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
+          role="status"
+          aria-label="Loading why us section"
+        ></div>
+      }
+    </div>
+    @defer (on idle) {
+      <app-f-our-clients [Client]="allHomeData.clients" [isRTL]="isRTL" />
+    } @placeholder {
+      <div
+        class="min-h-[150px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
+        role="status"
+        aria-label="Loading clients section"
+      ></div>
+    }
+    <div class="relative">
+      @if (isFoundationDay) {
+        <div
+          class="absolute inset-y-0 end-0 h-full w-[86px] bg-[url('/images/foundation-day/decoration-2.png')] bg-repeat-y -z-10 mix-blend-color-burn"
+        ></div>
+      }
+
+      @defer (on idle) {
+        <app-g-our-projects [Project]="allHomeData.projects" [isRTL]="isRTL" />
+      } @placeholder {
+        <div
+          class="min-h-[200px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
+          role="status"
+          aria-label="Loading projects section"
+        ></div>
+      }
+      @defer (on idle) {
+        <app-k-our-partners [Partner]="allHomeData.partners" [isRTL]="isRTL" />
+      } @placeholder {
+        <div
+          class="min-h-[150px] bg-gray-100 animate-pulse rounded-lg mx-auto my-4 max-w-5xl"
+          role="status"
+          aria-label="Loading partners section"
+        ></div>
+      }
+    </div>
+
+    <app-h-download-pdf-section />
+    <app-youtube-slider
+      [YoutubeSlider]="allHomeData.youtubeurls"
+      [isRTL]="isRTL"
+    />
+    <app-m-contact-us />
+  </article>
+}

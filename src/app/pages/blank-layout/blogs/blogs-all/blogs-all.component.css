@@ -1,0 +1,84 @@
+.image_border {
+  box-shadow: 0 0 0 8px #e7bf8c inset; /* Replace with actual color if not using CSS variables */
+  border-radius: 10px;
+}
+
+.image_border img {
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+}
+
+figure .main_image {
+  transform: scale(1.5);
+  transition: 0.5s all;
+}
+
+figure:hover .main_image {
+  transform: scale(1);
+}
+
+.card_text {
+  background-color: #303030;
+}
+
+.card .card_hidden_content {
+  opacity: 0;
+  transition: 0.5s all;
+}
+
+.card:hover .card_hidden_content {
+  opacity: 1;
+}
+
+.rotate_moreDetails_Button {
+  transform: rotate(180deg);
+}
+
+/* Pagination custom styles */
+:host ::ng-deep .ngx-pagination a {
+  border-radius: 50% !important;
+  background-color: white !important;
+  color: black;
+  margin-inline: 5px;
+}
+
+:host ::ng-deep .ngx-pagination .current {
+  background-color: #e7bf8c !important;
+  border-radius: 50%;
+}
+
+:host ::ng-deep .ngx-pagination a:hover:not(:first-child, :last-child) {
+  background-color: #e7bf8c !important;
+  border-radius: 50%;
+  color: white !important;
+}
+
+:host ::ng-deep .ngx-pagination li:last-child:hover a,
+:host ::ng-deep .ngx-pagination li:first-child:hover a {
+  border-radius: 100vh !important;
+  background-color: white !important;
+  color: black;
+}
+
+:host ::ng-deep .ngx-pagination .disabled {
+  border-radius: 50% !important;
+  background-color: white !important;
+  color: black;
+  margin-inline: 5px;
+}
+
+:host ::ng-deep .ngx-pagination li:last-child a,
+:host ::ng-deep .ngx-pagination li:first-child a,
+:host ::ng-deep .ngx-pagination .disabled,
+:host ::ng-deep .ngx-pagination .pagination-next a {
+  border-radius: 100vh !important;
+}
+
+/* Line clamp utilities if not available in your Tailwind config */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

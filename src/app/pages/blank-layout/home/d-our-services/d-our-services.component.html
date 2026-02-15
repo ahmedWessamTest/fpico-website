@@ -1,0 +1,120 @@
+<section class="capitalize my-20 text-center">
+  <div class="container mx-auto">
+    <header [innerHTML]="'home.services-title' | translate | safeHtml">
+      <!-- <h2 class="text-white"><span class="text-primary">our</span> services</h2>
+      <p class="text-lighter">
+        we offer a comprehensive range of construction services designed to meet
+        <span class="block">your needs</span>
+      </p> -->
+    </header>
+    @if (Service()) {
+    <div>
+      @if (isRTL()) {
+      <owl-carousel-o
+        [options]="customOptions"
+        (dragging)="onDragStart()"
+        (translated)="onDragEnd()"
+      >
+        @for (slider of Service(); track slider.id) {
+        <ng-template carouselSlide [id]="slider.id + ''">
+          <div>
+            <a
+              class="no-underline text-gray-900"
+              accordion
+              [routerLink]="
+                shouldNavigate()
+                  ? [
+                      '/',
+                      languageService.selectedLanguage$ | async,
+                      'services-details',
+                      slider.id
+                    ]
+                  : null
+              "
+              [class.disabled]="!shouldNavigate()"
+              href="#"
+            >
+              <div class="images_carousel" [title]="slider.ar_service_title">
+                <img
+                  (load)="imageLoaded(img)"
+                  #img
+                  loading="lazy"
+                  class="w-full h-full"
+                  [src]="
+                    WEB_SITE_BASE_URL_IMAGE + 'service/' + slider.main_image
+                  "
+                  [alt]="slider.en_meta_title"
+                  
+                />
+                <span
+                  class="placeholder bg-opacity-100 absolute inset-0"
+                ></span>
+                <h3
+                  class="w-4/5 bg-white rounded-xl overflow-hidden absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-2 !text-lg font-bold mb-3"
+                >
+                  {{ slider.ar_service_title }}
+                </h3>
+              </div>
+            </a>
+          </div>
+        </ng-template>
+        }
+      </owl-carousel-o>
+      } @else {
+      <owl-carousel-o
+        [options]="customOptions"
+        (dragging)="onDragStart()"
+        (translated)="onDragEnd()"
+      >
+        @for (slider of Service(); track slider.id) {
+        <ng-template carouselSlide [id]="slider.id + ''">
+          <div>
+            <a
+              class="no-underline text-gray-900"
+              [routerLink]="
+                shouldNavigate()
+                  ? [
+                      '/',
+                      languageService.selectedLanguage$ | async,
+                      'services-details',
+                      slider.id
+                    ]
+                  : null
+              "
+              [class.disabled]="!shouldNavigate()"
+              href="#"
+            >
+              <div class="images_carousel">
+                <img
+                  (load)="imageLoaded(img)"
+                  #img
+                  loading="lazy"
+                  class="w-full max-h-[200px]"
+                  [src]="
+                    WEB_SITE_BASE_URL_IMAGE + 'service/' + slider.main_image
+                  "
+                  [alt]="slider.en_meta_title"
+                />
+                <span
+                  class="placeholder bg-opacity-100 absolute inset-0"
+                ></span>
+                <h3
+                  class="title_card w-4/5 bg-white rounded-xl absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap px-3 py-2 text-sm mb-3 font-bold"
+                >
+                  <span
+                    class="overflow-hidden inline-block w-full line-clamp-1"
+                  >
+                    {{ slider.en_service_title }}
+                  </span>
+                </h3>
+              </div>
+            </a>
+          </div>
+        </ng-template>
+        }
+      </owl-carousel-o>
+      }
+    </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,10 @@
+<label for="language-select" class="sr-only">Select Language:</label>
+<select
+  aria-label="Language Selector"
+  id="language-select"
+  [(ngModel)]="selectedLanguage"
+  (change)="onLanguageChange()"
+  class="appearance-none bg-transparent text-white text-base px-3 py-2 rounded-lg border border-transparent hover:border-gray-400 focus:outline-none focus:border-primary-500 cursor-pointer transition-all">
+  <option value="en" class="bg-gray-800 text-white">EN</option>
+  <option value="ar" class="bg-gray-800 text-white">AR</option>
+</select>

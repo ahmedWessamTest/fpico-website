@@ -1,0 +1,17 @@
+
+
+.transform_logo_animation {
+  animation: 1s 0.5s forwards transform_logo_animation linear;
+}
+
+@keyframes transform_logo_animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.main {
+  height: 162px;
+}

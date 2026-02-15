@@ -1,0 +1,206 @@
+body {
+  background-color: #1c1c1c;
+}
+
+.card {
+  transition: 0.5s all;
+}
+
+.rtl {
+  direction: rtl;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.rtl-g,
+.rtl-g * {
+  direction: rtl !important;
+}
+
+.drop-down-container:hover .drop-down-nav {
+  display: flex;
+}
+
+.drop-down-container .drop-down-nav {
+  width: 150px;
+  display: none;
+}
+
+.drop-down-container .drop-down-nav li {
+  transition: 0.5s all;
+}
+
+.drop-down-container .drop-down-nav li a {
+  text-decoration: none !important;
+}
+
+.drop-down-container .drop-down-nav li:hover {
+  background-color: #cfcfcf;
+}
+
+a.nav-link {
+  color: var(--text-lighter);
+}
+
+.navbar a:hover,
+.navbar a.active,
+.navbar a:focus {
+  color: white !important;
+}
+
+.section__title {
+  color: #000;
+  font-family: Cairo;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.btn-large a {
+  padding-inline: 50px !important;
+}
+
+img {
+  object-position: top;
+}
+
+.lightBox {
+  display: flex;
+  animation: lightBox_hide 0.1s 2s forwards;
+}
+
+@keyframes lightBox_hide {
+  0% {
+    display: flex;
+  }
+  100% {
+    display: none;
+  }
+}
+
+.p-paginator {
+  direction: ltr !important;
+}
+
+.pi {
+  margin-inline: 0.5rem !important;
+}
+
+.p-toast-message-content {
+  align-items: start;
+}
+
+.p-toast-message-content .p-element.p-icon-wrapper {
+  align-items: start;
+  margin-left: 0.5rem;
+}
+
+.hyper_link {
+  text-decoration: none !important;
+}
+
+.video-like-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+
+.banner-animation {
+  opacity: 0;
+  transform: scale(0.5);
+  animation: banner_animation 1s forwards;
+}
+
+@keyframes banner_animation {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.main_Image_Animation img {
+  transform: scale(0.5);
+  opacity: 0;
+  animation: 0.5s 0.5s forwards main_image_animation;
+  transform-origin: bottom left;
+}
+
+@keyframes main_image_animation {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.Details_related_images_bg {
+  background-image: url("/images/details/bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 50%;
+  background-position: center;
+}
+
+.bg-section-image {
+  background-image: url("/images/about-us-page/bg.png");
+  background-repeat: no-repeat;
+  background-position: left 70%;
+  /* background-image: url("/images/hero/Kingdom\ Centre_1200x500.webp"); */
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  line-clamp: 2; /* Limit text to 2 lines */
+  -webkit-line-clamp: 2; /* Limit text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: start !important;
+  line-height: 1.4; /* Adjust for better readability */
+  max-height: calc(1.4em * 2); /* Ensure it doesn't exceed two lines */
+}
+.line-clamp-1 {
+  display: -webkit-box;
+  line-clamp: 1; /* Limit text to 1 lines */
+  -webkit-line-clamp: 1; /* Limit text to 1 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center !important;
+  line-height: 2; /* Adjust for better readability */
+  max-height: 2; /* Ensure it doesn't exceed two lines */
+}
+
+.line-clamp-blogs-2 {
+  display: -webkit-box;
+  line-clamp: 2; /* Limit text to 2 lines */
+  -webkit-line-clamp: 2; /* Limit text to 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: start !important;
+  line-height: 1.4; /* Adjust for better readability */
+  min-height: 3.8em; /* Ensure it doesn't exceed two lines */
+  max-height: 3.8em; /* Ensure it doesn't exceed two lines */
+}
+
+/* 01-Edit By Marwan */
+figure {
+  margin: 0 0 1rem;
+}
+
+.active-link {
+  color: #edbd7e;
+}

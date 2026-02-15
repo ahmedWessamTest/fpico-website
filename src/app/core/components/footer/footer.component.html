@@ -1,0 +1,229 @@
+@if (allLinks) {
+  <footer
+    class="capitalize bg-[url('/images/footer/footer_bg.webp')] bg-no-repeat bg-left-bottom"
+  >
+    <img
+      src="/images/foundation-day/decoration-2-h.png"
+      class="w-full h-[86px] mix-blend-color-burn"
+      alt=""
+    />
+    <div class="container mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Logo and ISO Images Column -->
+        <div class="lg:col-span-2">
+          <div class="flex flex-col justify-between h-full">
+            <img
+              loading="lazy"
+              src="/images/my-fav.ico/fipco.webp"
+              class="max-w-[130px]"
+              alt="FPICO"
+            />
+            <div class="flex items-center gap-3">
+              <img
+                loading="lazy"
+                src="/images/iso1.webp"
+                class="w-[50px] mx-[5px]"
+                alt="ISO Certificate - 1"
+              />
+              <img
+                loading="lazy"
+                src="/images/iso2.webp"
+                class="w-[50px] mx-[5px]"
+                alt="ISO Certificate - 2"
+              />
+              <img
+                loading="lazy"
+                src="/images/iso3.webp"
+                class="w-[50px] mx-[5px]"
+                alt="ISO Certificate - 3"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation Links Column -->
+        <div class="lg:col-span-2">
+          <div>
+            <h2 class="text-white !text-lg mb-4">
+              {{ "footer.col02.title" | translate }}
+            </h2>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  class="text-lighter hover:text-lighter transition-colors"
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                  ]"
+                >
+                  {{ "Pages.Home.navbar.navigations.home" | translate }}
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-lighter hover:text-lighter transition-colors"
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'about-us',
+                  ]"
+                >
+                  {{ "footer.col02.row01" | translate }}
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-lighter hover:text-lighter transition-colors"
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'projects',
+                  ]"
+                >
+                  {{ "footer.col02.row03" | translate }}
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-lighter hover:text-lighter transition-colors"
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'services',
+                  ]"
+                >
+                  {{ "footer.col02.row02" | translate }}
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-lighter hover:text-lighter transition-colors"
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'contact-us',
+                  ]"
+                >
+                  {{ "footer.col02.row04" | translate }}
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-lighter hover:text-lighter transition-colors"
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'privacy-policy',
+                  ]"
+                >
+                  {{ "footer.col02.row05" | translate }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Services Column -->
+        <div class="lg:col-span-5">
+          <div>
+            <h2 class="text-white !text-lg mb-4">
+              {{ "footer.col-3.title" | translate }}
+            </h2>
+            @if (services) {
+              <ul class="space-y-2">
+                @for (item of services; track item.id) {
+                  <li class="text-lighter capitalize">
+                    <a
+                      [routerLink]="[
+                        '/',
+                        languageService.selectedLanguage$ | async,
+                        'services-details',
+                        item.id,
+                      ]"
+                      class="text-lighter hover:text-lighter transition-colors"
+                    >
+                      @if (isRTL) {
+                        {{ item.ar_service_title }}
+                      } @else {
+                        {{ item.en_service_title }}
+                      }
+                    </a>
+                  </li>
+                }
+              </ul>
+            }
+          </div>
+        </div>
+
+        <!-- Contact Information Column -->
+        <div class="lg:col-span-3">
+          <div class="flex flex-col justify-between h-full">
+            <div>
+              <h2 class="text-white !text-lg mb-4">
+                {{ "footer.col04.title" | translate }}
+              </h2>
+              <!-- Contact Details -->
+              <div class="space-y-2">
+                <p class="text-lighter">
+                  <a
+                    [href]="'tel:' + allLinks.contact.contat_first_phone"
+                    class="text-lighter text-sm hover:text-lighter transition-colors"
+                    aria-label="Call +966 055 820 0003"
+                  >
+                    @if (isRTL) {
+                      {{ allLinks.contact.contat_first_phone }}
+                    } @else {
+                      {{ allLinks.contact.contat_first_phone }}
+                    }
+                  </a>
+                </p>
+                <p class="text-lighter">
+                  <a
+                    [href]="'tel:' + allLinks.contact.contact_second_phone"
+                    class="text-lighter text-sm hover:text-lighter transition-colors"
+                    aria-label="Call +966 053 410 3237"
+                  >
+                    {{ allLinks.contact.contact_second_phone }}
+                  </a>
+                </p>
+                <p class="text-lighter">
+                  @if (isRTL) {
+                    {{ allLinks.contact.ar_address }}
+                  } @else {
+                    {{ allLinks.contact.en_address }}
+                  }
+                </p>
+              </div>
+            </div>
+            <!-- Social Media Links -->
+            <div class="mt-4">
+              <app-social-media-links />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div
+      class="text-lighter text-center py-3 flex items-center justify-center gap-2"
+    >
+      <span>{{ "footer.db-copy-rights.title" | translate }}</span>
+      <span>&commat;2025</span>
+      <a
+        target="_blank"
+        href="https://digitalbondmena.com/en"
+        class="inline-flex items-center"
+      >
+        <img
+          src="/images/footer/db.webp"
+          class="w-10 h-auto"
+          alt="Digital Bond"
+          width="100"
+          height="100"
+        />
+        <span class="ml-2">digital bond</span>
+      </a>
+    </div>
+  </footer>
+}

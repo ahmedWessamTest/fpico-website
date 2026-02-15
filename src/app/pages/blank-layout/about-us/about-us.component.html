@@ -1,0 +1,114 @@
+@if (allAboutData) {
+<main
+  class="capitalize my-5 bg-section-image overflow-hidden"
+  aria-labelledby="about-title"
+>
+  <h3 id="about-title" class="sr-only">
+    FPICO - About Us - Leading Construction and Development Company
+  </h3>
+  <div class="container mx-auto text-white">
+    <!-- section and title -->
+    <div class="grid grid-cols-1 justify-items-center">
+      <div class="w-full grid grid-cols-1 items-center">
+        <app-pages-header
+          [title]="'Pages.About.title'"
+          [title02]="'Pages.About.title02'"
+          [desc01]="'Pages.About.title-desc01'"
+          [desc02]="'Pages.About.title-desc02'"
+          [order]="true"
+        ></app-pages-header>
+      </div>
+
+      <!--Home Main Image-->
+      <div class="w-full">
+        <div class="my-12 relative images_parent aspect-[12/5]">
+          <img
+            src="/images/rush.webp"
+            srcset="
+              /images/rush-300.webp 300w,
+              /images/rush-600.webp 600w,
+              /images/rush.webp     900w
+            "
+            sizes="(max-width: 768px) 300px, (max-width: 1200px) 600px, 900px"
+            width="300"
+            height="120"
+            class="absolute z-50 w-[300px] h-[120px] left-1/2 top-0 -translate-x-1/2"
+            alt="FPICO rush logo"
+            fetchpriority="high"
+            loading="eager"
+            style="
+              content-visibility: auto;
+              contain-intrinsic-size: 300px 120px;
+            "
+          />
+          <img
+            class="w-full h-full object-cover banner-animation"
+            src="/images/hero/Kingdom_Centre_1200x500.webp"
+            alt="Kingdom Centre project by FPICO"
+            width="1200"
+            height="500"
+            fetchpriority="high"
+            loading="eager"
+            style="
+              content-visibility: auto;
+              contain-intrinsic-size: 1200px 500px;
+            "
+          />
+          <div class="main-text translate-middle-y w-11/12 ml-auto">
+            <h2 class="inline !text-[16px] mr-1">
+              {{ "Page.about.title01" | translate }}
+              <span class="text-main">FPICO</span>
+            </h2>
+            <h2 class="inline !text-[16px]">
+              {{ "Page.about.title02" | translate }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- about us banner -->
+    <section aria-labelledby="features-title">
+      <app-about-banner-section
+        [features]="allAboutData.features"
+        [isRTL]="isRTL"
+      ></app-about-banner-section>
+    </section>
+
+    <!-- Master Message -->
+    <section aria-labelledby="chairman-title">
+      <app-b-manager-message
+        [isRTL]="isRTL"
+        [ChairMessage]="allAboutData.chairmessage"
+      ></app-b-manager-message>
+    </section>
+
+    <!-- our Partners -->
+    <section aria-labelledby="partners-title">
+      <app-k-our-partners
+        [isRTL]="isRTL"
+        [isAddBackgroundColor]="true"
+        [Partner]="allAboutData.clients"
+      ></app-k-our-partners>
+    </section>
+
+    <!-- About us last banner -->
+    <section aria-labelledby="about-banner-title">
+      <app-about-us-last-banner
+        [isRTL]="isRTL"
+        [allAboutData]="allAboutData"
+      ></app-about-us-last-banner>
+    </section>
+
+    <!-- Download PDF section -->
+    <section aria-labelledby="download-title" class="my-12">
+      <app-h-download-pdf-section></app-h-download-pdf-section>
+    </section>
+
+    <!-- Contact Us -->
+    <section aria-labelledby="contact-title" class="mb-12">
+      <app-about-us-contact-form></app-about-us-contact-form>
+    </section>
+  </div>
+</main>
+}

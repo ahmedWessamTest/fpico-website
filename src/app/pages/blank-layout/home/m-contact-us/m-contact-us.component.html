@@ -1,0 +1,32 @@
+<section class="my-20" aria-labelledby="contact-us-title">
+  <h2 id="contact-us-title" class="sr-only">Contact Us</h2>
+  <div class="container mx-auto">
+    <div class="section_bg p-3 my-20 flex items-center min-h-[500px]">
+      <div class="capitalize">
+        <h2
+          [innerHTML]="'home.contactus' | translate | safeHtml"
+          class="!text-[80px] text-white font-light mt-20"
+        >
+          <!-- Ready To
+          <span class="block"> Build Together </span> -->
+        </h2>
+        <div class="capitalize mt-4">
+          <button
+            [routerLink]="[
+              '/',
+              languageService.selectedLanguage$ | async,
+              'contact-us'
+            ]"
+            class="cursor-pointer capitalize btn-third mx-2 mb-3"
+          >
+            {{ "home.contact-us.btn01" | translate }}
+            <!-- build a project with us -->
+          </button>
+          <!-- <button class="capitalize btn-third mx-2 mb-3">
+            {{ "home.contact-us.btn02" | translate }}
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

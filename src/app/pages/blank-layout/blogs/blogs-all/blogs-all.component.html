@@ -1,0 +1,148 @@
+@if (allBlogsData) {
+<section class="capitalize my-5">
+  <h2 class="hidden">FIPCO OUR Blogs</h2>
+  <div class="container mx-auto px-4 text-white">
+    <!-- section and title -->
+    <div class="flex flex-col justify-center">
+      <div class="flex items-center">
+        <app-pages-header
+          class="w-full"
+          [title]="'Pages.blogs.title'"
+          [title02]="'Pages.blogs.title-desc02'"
+          [desc01]="''"
+          [desc02]="''"
+        ></app-pages-header>
+      </div>
+    </div>
+
+    <div class="w-full flex flex-wrap justify-center gap-4">
+      @for (blog of allBlogsData.rows.data|slice: 0: (isDesktop ?9:8) |
+      paginate: { id:'some_id', itemsPerPage: 9, currentPage:
+      currentPage,totalItems: totalItems }; track blog.id) {
+      <div
+        class="rounded-md mb-4 w-full sm:w-[calc(50%-8px)] lg:w-[calc(33.333%-11px)]"
+      >
+        <div class="h-full">
+          <figure
+            class="card images_carousel h-full relative overflow-hidden rounded-lg bg-transparent"
+          >
+            <div
+              #card_container
+              class="overflow-hidden rounded-lg h-full w-full aspect-[4/3]"
+            >
+              <img
+                #img
+                [loading]="$index < 3 ? 'eager':'lazy'"
+                [decoding]="$index < 3 ? 'sync':'async'"
+                (load)="imageLoaded(card_container)"
+                class="w-full h-full rounded-md main_image object-cover blog-image transition-opacity duration-300"
+                [src]="WEB_SITE_BASE_URL_IMAGE + 'blogs/' + blog.main_image"
+                [alt]="blog.en_blog_title"
+                width="400"
+                height="300"
+                fetchpriority="low"
+                [attr.fetchpriority]="$index < 3 ? 'high':'lazy'"
+              />
+            </div>
+            <div class="skeleton-loader absolute h-full w-full inset-0">
+              <div class="absolute inset-0 bg-gray-200 animate-pulse"></div>
+              <div
+                class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-[80%] h-12 bg-gray-300 rounded-lg animate-pulse"
+              ></div>
+            </div>
+            <figcaption class="absolute inset-0">
+              <p
+                style="width: 80%"
+                class="bg-white text-black rounded-lg absolute bottom-0 left-1/2 transform -translate-x-1/2 px-3 py-2 mb-3 text-[16px] font-bold line-clamp-blogs-2"
+              >
+                @if (isRTL) {
+                {{ blog.ar_blog_title }}
+                } @else {
+                {{ blog.en_blog_title }}
+                }
+              </p>
+              <div
+                class="card_hidden_content w-full absolute bottom-0 left-0 p-4 rounded-lg bg-[#303030] text-capitalize opacity-0 transition-opacity duration-500"
+              >
+                <p class="text-white mb-1 text-[16px] font-bold line-clamp-2">
+                  @if (isRTL) {
+                  {{ blog.ar_blog_title }}
+                  } @else {
+                  {{ blog.en_blog_title }}
+                  }
+                </p>
+
+                @if(isRTL) {
+                <a
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'blogs',
+                    blog.ar_slug
+                  ]"
+                  href="#"
+                  class="btn-main inline-flex w-full items-center justify-between px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ease-in-out focus:outline-none"
+                >
+                  {{ "More Details" | translate }}
+                  <img
+                    loading="lazy"
+                    [class]="{ 'rotate-180': isRTL }"
+                    src="/images/services-page/arrow-right.webp"
+                    width="25"
+                    height="25"
+                    alt="button arrow right"
+                    fetchpriority="high"
+                    loading="eager"
+                  />
+                </a>
+                } @else {
+                <a
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'blogs',
+
+                    blog.en_slug
+                  ]"
+                  href="#"
+                  class="btn-main w-full flex justify-between items-center no-underline"
+                >
+                  {{ "More Details" | translate }}
+                  <img
+                    loading="lazy"
+                    [class]="{ 'rotate-180': isRTL }"
+                    src="/images/services-page/arrow-right.webp"
+                    width="25"
+                    height="25"
+                    alt="button arrow right"
+                    fetchpriority="high"
+                    loading="eager"
+                  />
+                </a>
+                }
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+@if (totalItems > 0) {
+<div class="flex justify-center my-4">
+  <pagination-controls
+    id="some_id"
+    (pageChange)="pageChanged($event)"
+    [directionLinks]="true"
+    [autoHide]="false"
+    [maxSize]="8"
+    [nextLabel]="'next' | translate"
+    [previousLabel]="'prev' | translate"
+    [responsive]="true"
+    screenReaderPaginationLabel="Pagination"
+  >
+  </pagination-controls>
+</div>
+} }

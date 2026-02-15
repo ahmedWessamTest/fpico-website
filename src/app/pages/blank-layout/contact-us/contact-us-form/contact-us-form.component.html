@@ -1,0 +1,277 @@
+<div class="p-4">
+  <div class="mb-3">
+    <h2 class="my-1 font-bold title__fonts__normal text-2xl">
+      {{ "Pages.contact-us-page.form.title" | translate }}
+    </h2>
+  </div>
+  <form
+    [formGroup]="messagesForm"
+    (ngSubmit)="onSubmit()"
+    aria-label="Contact Us Form"
+    class="grid grid-cols-1 gap-3"
+  >
+    <!-- input field: full_name  -->
+    <div class="w-full">
+      <div>
+        <label for="name" class="sr-only">
+          {{ isRTL() ? "الاسم بالكامل" : "Full Name" }}
+        </label>
+        <div class="text-right">
+          @if (messagesForm.get('full_name')?.getError("required") &&
+          startValidation()) {
+          <small class="text-red-500 italic" role="alert">
+            {{
+              "Pages.contact-us-page.form.validation.required" | translate
+            }}*</small
+          >
+          } @if (messagesForm.get('full_name')?.getError("pattern") &&
+          startValidation()) {
+          <small class="text-red-500 italic" role="alert">
+            {{
+              "Pages.contact-us-page.form.validation.name" | translate
+            }}*</small
+          >
+          } @if (messagesForm.get('full_name')?.getError("minlength") &&
+          startValidation()) {
+          <small class="text-red-500 italic" role="alert">
+            {{
+              "Pages.contact-us-page.form.validation.name02" | translate
+            }}*</small
+          >
+          }
+        </div>
+        <div>
+          <input
+            [ngClass]="{
+              'is-invalid':
+                startValidation() &&
+                (messagesForm.get('full_name')?.getError('required') ||
+                  messagesForm.get('full_name')?.getError('pattern'))
+            }"
+            type="text"
+            class="form-control"
+            id="name"
+            [placeholder]="isRTL() ? 'الاسم بالكامل' : 'full name'"
+            formControlName="full_name"
+            aria-required="true"
+            [attr.aria-invalid]="
+              startValidation() &&
+              (messagesForm.get('full_name')?.getError('required') ||
+                messagesForm.get('full_name')?.getError('pattern'))
+            "
+          />
+        </div>
+      </div>
+    </div>
+    <!-- input field: userEmail  -->
+    <div class="w-full mt-4">
+      <div>
+        <label for="email" class="sr-only">
+          {{ isRTL() ? "البريد الالكترونى" : "Email" }}
+        </label>
+        <div class="text-right">
+          @if (messagesForm.get('email')?.getError("required") &&
+          startValidation()) {
+          <small class="text-red-500 italic" role="alert">
+            {{
+              "Pages.contact-us-page.form.validation.required" | translate
+            }}*</small
+          >
+          } @if (messagesForm.get('email')?.getError("pattern") &&
+          startValidation()) {
+          <small class="text-red-500 italic" role="alert">
+            {{
+              "Pages.contact-us-page.form.validation.email" | translate
+            }}*</small
+          >
+          }
+        </div>
+        <div>
+          <input
+            [ngClass]="{
+              'is-invalid':
+                startValidation() &&
+                (messagesForm.get('email')?.getError('required') ||
+                  messagesForm.get('email')?.getError('pattern'))
+            }"
+            type="email"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            [placeholder]="isRTL() ? 'البريد الالكترونى' : 'e-mail'"
+            aria-required="true"
+            [attr.aria-invalid]="
+              startValidation() &&
+              (messagesForm.get('email')?.getError('required') ||
+                messagesForm.get('email')?.getError('pattern'))
+            "
+          />
+        </div>
+      </div>
+    </div>
+    <!-- input field: userPhone  -->
+    <div class="w-full mt-4">
+      <div>
+        <label for="phone" class="sr-only">
+          {{ isRTL() ? "رقم الهاتف" : "Phone Number" }}
+        </label>
+        <div class="text-right">
+          @if (messagesForm.get('phone')?.getError("required") &&
+          startValidation()) {
+          <small class="text-red-500 italic" role="alert">
+            {{
+              "Pages.contact-us-page.form.validation.required" | translate
+            }}*</small
+          >
+          } @if (messagesForm.get('phone')?.errors && startValidation() &&
+          phone.value?.length || 0 > 0) {
+          <small class="text-red-500 italic" role="alert">
+            {{
+              "Pages.contact-us-page.form.validation.phone" | translate
+            }}*</small
+          >
+          }
+        </div>
+        <ngx-intl-tel-input
+          #phone
+          [cssClass]="
+            startValidation() && messagesForm.get('phone')?.errors
+              ? 'form-control h-full py-3 is-invalid ' +
+                (isRTL() ? 'text-end' : 'text-start')
+              : 'form-control h-full py-3 ' +
+                (isRTL() ? 'text-end' : 'text-start')
+          "
+          [preferredCountries]="[CountryISO.SaudiArabia]"
+          [enableAutoCountrySelect]="false"
+          [enablePlaceholder]="false"
+          [customPlaceholder]="isRTL() ? 'رقم الهاتف' : 'phone'"
+          [searchCountryFlag]="true"
+          [searchCountryField]="[
+            SearchCountryField.Iso2,
+            SearchCountryField.Name
+          ]"
+          [selectFirstCountry]="false"
+          [selectedCountryISO]="CountryISO.SaudiArabia"
+          [maxLength]="15"
+          [phoneValidation]="true"
+          name="phone"
+          formControlName="phone"
+          aria-required="true"
+          [attr.aria-invalid]="
+            startValidation() && messagesForm.get('phone')?.errors
+          "
+        ></ngx-intl-tel-input>
+      </div>
+    </div>
+    <!-- input field: userServices  -->
+    <div class="w-full mt-4">
+      <div>
+        <label for="services" class="sr-only">
+          {{ isRTL() ? "الخدمة" : "Service" }}
+        </label>
+        <div class="text-right">
+          @if (messagesForm.get('service_id')?.getError("required") &&
+          startValidation()) {
+          <small class="text-red-500 italic" role="alert">
+            {{
+              "Pages.contact-us-page.form.validation.required" | translate
+            }}*</small
+          >
+          }
+        </div>
+        <div>
+          @if (allServices()) {
+          <select
+            formControlName="service_id"
+            [ngClass]="{
+              'is-invalid':
+                startValidation() &&
+                messagesForm.get('service_id')?.getError('required')
+            }"
+            class="form-select w-full"
+            name="services"
+            id="services"
+            aria-required="true"
+            [attr.aria-invalid]="
+              startValidation() &&
+              messagesForm.get('service_id')?.getError('required')
+            "
+          >
+            <option value="" selected disabled>
+              {{ isRTL() ? "الخدمة" : "service" }}
+            </option>
+            @for (item of servicesList(); track item.id) {
+            <option [value]="item.id">
+              @if (isRTL()) {
+              {{ item.ar_service_title }}
+              } @else {
+              {{ item.en_service_title }}
+              }
+            </option>
+            }
+          </select>
+          }
+        </div>
+      </div>
+    </div>
+    <!-- input field: userMessage  -->
+    <div class="w-full mt-4">
+      <div>
+        <label for="message" class="sr-only">
+          {{ isRTL() ? "الرسالة" : "Message" }}
+        </label>
+        <div class="text-right">
+          @if (messagesForm.get('message')?.getError("required") &&
+          startValidation()) {
+          <small class="text-red-500 italic" role="alert">
+            {{
+              "Pages.contact-us-page.form.validation.required" | translate
+            }}*</small
+          >
+          } @if (messagesForm.get('message')?.getError("minlength") &&
+          startValidation()) {
+          <small class="text-red-500 italic" role="alert">
+            {{
+              "Pages.contact-us-page.form.validation.message" | translate
+            }}*</small
+          >
+          }
+        </div>
+        <div>
+          <textarea
+            [ngClass]="{
+              'is-invalid':
+                startValidation() &&
+                messagesForm.get('message')?.getError('required')
+            }"
+            class="form-control h-20"
+            [placeholder]="isRTL() ? 'اكتب رسالتك...' : 'message...'"
+            id="message"
+            formControlName="message"
+            aria-required="true"
+            [attr.aria-invalid]="
+              startValidation() &&
+              messagesForm.get('message')?.getError('required')
+            "
+          ></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- submit button  -->
+    <div class="w-full mt-4 text-center md:text-left">
+      <button
+        type="submit"
+        class="cursor-pointer btn-main btn py-4 px-6 title__fonts font-normal rounded-sm uppercase w-full"
+        [attr.aria-busy]="isSubmitting()"
+        [disabled]="isSubmitting()"
+      >
+        {{ "Pages.contact-us-page.form.button" | translate }}
+      </button>
+      @if (successMessage()) {
+      <p class="mt-2 text-green-500 text-center" role="status">
+        {{ "successMessage" | translate }}
+      </p>
+      }
+    </div>
+  </form>
+</div>

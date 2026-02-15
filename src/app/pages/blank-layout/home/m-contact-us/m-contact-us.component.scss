@@ -1,0 +1,12 @@
+.section_bg {
+  background-image: url("/images/DownloadSection/ready_to_build_image.png");
+  background-size: 100% 100%;
+  background-position: center;
+}
+::ng-deep .btn-third {
+  background-color: #1c1a1a !important;
+  color: white !important;
+  border-radius: 5px;
+  text-decoration: none !important;
+  padding: 20px 40px;
+}

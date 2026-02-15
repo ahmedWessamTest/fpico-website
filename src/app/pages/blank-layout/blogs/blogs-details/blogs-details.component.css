@@ -1,0 +1,168 @@
+@keyframes animation_slider {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Owl Carousel Styles */
+.owl-dot-text span {
+  transition: all 0.5s ease !important;
+  background-color: #ccc !important;
+  border-radius: 50% !important;
+  margin: 6px 3px !important;
+}
+
+.owl-dot-text.ng-star-inserted.active span {
+  background-color: #e7bf8c !important;
+  width: 30px !important;
+  border-radius: 10px !important;
+}
+
+.owl-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.owl-prev,
+.owl-next {
+  background-color: #e7bf8c !important;
+  color: #000 !important;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.owl-prev:hover,
+.owl-next:hover {
+  background-color: var(--main-color);
+}
+
+/* Image Container Hover Effect */
+.imageContainer-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  opacity: 0;
+  transition: 0.5s all;
+}
+
+.imageContainer-hover:hover::after {
+  opacity: 0.5;
+}
+
+/* Sticky Parent Styles */
+.sticky-parent img {
+  height: 80px !important;
+}
+
+@media (min-width: 992px) {
+  .sticky-parent {
+    min-height: 100vh;
+  }
+  .sticky-parent img {
+    height: auto !important;
+  }
+  .sticky-parent .lg\:w-full {
+    min-height: 12.5vh;
+  }
+  .sticky-parent .lg\:w-full img {
+    height: 11vh !important;
+  }
+}
+
+/* Content Styles */
+.content {
+  text-align: justify !important;
+  color: white !important;
+}
+
+/* WhatsApp Banner Styles */
+::ng-deep .banner_parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 20px;
+  background: #fff;
+  flex-wrap: wrap;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  max-width: 600px;
+  background-color: black;
+  margin: 68px auto;
+}
+
+::ng-deep.banner_text {
+  text-align: center;
+  flex-grow: 1;
+  font-size: 17px;
+}
+
+::ng-deep .banner_text :first-child {
+  margin: 0;
+  font-weight: bold;
+  color: white;
+}
+
+::ng-deep .banner_text :last-child {
+  margin: 0;
+  color: var(--main-color);
+}
+
+::ng-deep .banner_image_banner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+::ng-deep .banner_image_banner a {
+  background-color: #25d366;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+::ng-deep .banner_image_banner img {
+  width: 20px;
+  height: 20px;
+  margin: 0 !important;
+}
+
+::ng-deep .hase_bolet ul li {
+  list-style: disc !important;
+}
+.line-height-2 {
+  line-height: 2;
+}
+
+.content.description ::ng-deep h2,
+.content.description ::ng-deep h3,
+.content.description ::ng-deep h4,
+.content.description ::ng-deep h5,
+.content.description ::ng-deep h6 {
+  text-align: start !important;
+}
+
+.date::before {
+  position: absolute;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: #e7bf8c;
+  border-radius: 50%;
+  top: 50%;
+  right: -4px;
+  transform: translateY(-50%);
+}

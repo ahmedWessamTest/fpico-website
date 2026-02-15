@@ -1,0 +1,160 @@
+@if (allServicesData) {
+<section class="capitalize my-5" role="main" aria-label="FIPCO Services">
+  <h2 class="sr-only">FIPCO Services - Comprehensive Industrial Solutions</h2>
+  <div class="container mx-auto text-white">
+    <!-- section and title -->
+    <div class="grid grid-cols-1 justify-items-center">
+      <div class="w-full grid items-center">
+        <app-pages-header
+          [title]="'Pages.services.title02'"
+          [title02]="''"
+          [desc01]="'Pages.services.title-desc01'"
+          [desc02]="'Pages.services.title-desc02'"
+        ></app-pages-header>
+      </div>
+
+      <!-- Home Main Image -->
+      <div class="w-full">
+        <div class="my-9">
+          <img
+            loading="lazy"
+            class="w-full banner-animation"
+            src="/images/services-page/page/main_image.webp"
+            [alt]="'FIPCO Main Services Banner'"
+            [width]="1200"
+            [height]="600"
+            priority
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Section -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <!-- section Text -->
+      <div class="md:col-span-7 grid place-items-center">
+        <div>
+          <h2
+            class="text-lighter !text-[15px] leading-loose mb-3"
+            [innerHTML]="
+              'Pages.services.second-section.first-text' | translate | safeHtml
+            "
+          ></h2>
+          <p class="text-lighter !text-[15px] leading-loose">
+            {{ "Pages.services.second-section.second-text" | translate }}
+          </p>
+        </div>
+      </div>
+
+      <!-- section Image -->
+      <div class="md:col-span-5 my-2">
+        <div>
+          <figure class="image_border p-2">
+            <img
+              loading="lazy"
+              src="/images/services-page/page/second_image.webp"
+              class="w-full"
+              [alt]="'FIPCO Services Overview'"
+              [width]="600"
+              [height]="400"
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-9"
+      role="list"
+      aria-label="FIPCO Services List"
+    >
+      @for (slider of allServicesData.services; track slider.id) {
+      <div class="rounded-lg mb-4" role="listitem">
+        <div class="h-full">
+          <figure
+            class="h-[250px] card border-radius-10 images_carousel shadow-md rounded-lg overflow-hidden relative bg-transparent"
+          >
+            <div
+              #card_container
+              class="overflow-hidden border-radius-10 h-full"
+            >
+              <img
+                #img
+                (load)="imageLoaded(card_container)"
+                class="w-full h-full rounded-lg main_image border-radius-10 object-fit-cover"
+                [src]="WEB_SITE_BASE_URL_IMAGE + 'service/' + slider.main_image"
+                [alt]="slider.en_service_title"
+              />
+            </div>
+            <span class="placeholder bg-opacity-100 absolute inset-0"></span>
+            <figcaption class="absolute inset-0 grid items-end justify-center">
+              <span
+                class="bg-white text-black rounded-md text-center absolute bottom-0 left-1/2 -translate-x-1/2 px-3 py-2 text-[13px] mb-3 font-bold w-[80%]"
+              >
+                @if (isRTL) {
+                {{ slider.ar_service_title }}
+                } @else {
+                {{ slider.en_service_title }}
+                }
+              </span>
+              <div
+                class="card_hidden_content w-full absolute bottom-0 left-0 p-3 card_text rounded-lg capitalize"
+              >
+                <h3
+                  class="text-white !text-center !line-clamp-2 !text-[16px] mb-4"
+                >
+                  @if (isRTL) {
+                  {{ slider.ar_service_title }}
+                  } @else {
+                  {{ slider.en_service_title }}
+                  }
+                </h3>
+                <div class="service-text-container">
+                  @if (isRTL) {
+                    <div class="!items-center !line-clamp-2 text-lighter text-[13px] mb-4"
+                    [innerHTML]="slider.ar_service_text | safeHtml">
+                    </div>
+                  }@else {
+                    <div class="line-clamp-1 text-lighter text-[13px] mb-4"
+                    [innerHTML]="slider.en_service_text | safeHtml"></div>
+                  }
+                </div>
+                <a
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'services-details',
+                    slider.id
+                  ]"
+                  href="#"
+                  class="btn-main inline-flex w-full items-center justify-between px-4 py-2 text-sm font-medium rounded-md transition-colors duration-200 ease-in-out focus:outline-none"
+                  [attr.aria-label]="
+                    'More details about ' +
+                    (isRTL ? slider.ar_service_title : slider.en_service_title)
+                  "
+                >
+                  <span>{{ "More Details" | translate }}</span>
+                  <img
+                    loading="lazy"
+                    [class]="{ rotate_moreDetails_Button: isRTL }"
+                    src="/images/services-page/arrow-right.webp"
+                    [width]="25"
+                    [height]="25"
+                    [alt]="'Arrow icon'"
+                  />
+                </a>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      }
+    </div>
+
+    <!-- Download PDF section -->
+    <div class="my-5">
+      <app-h-download-pdf-section></app-h-download-pdf-section>
+    </div>
+  </div>
+</section>
+}

@@ -1,0 +1,40 @@
+<section
+  class="min-h-screen flex items-center justify-center"
+  aria-label="Page not found"
+>
+  <div class="container text-center">
+    <img
+      src="/images/not-found/not-found.svg"
+      alt="404 - Page not found illustration"
+      width="600"
+      height="450"
+      class="col-12 col-md-6 mx-auto block aspect-[4/3] mb-8"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div
+      class="flex justify-center gap-4"
+      role="navigation"
+      aria-label="Page navigation"
+    >
+      <button
+        [routerLink]="['/', languageService.selectedLanguage$ | async]"
+        class="btn btn-main py-3 px-15 text-lg !text-white capitalize cursor-pointer"
+        aria-label="Return to home page"
+      >
+        back to home
+      </button>
+      <button
+        [routerLink]="[
+          '/',
+          languageService.selectedLanguage$ | async,
+          'contact-us'
+        ]"
+        class="btn btn-main py-3 px-15 text-lg !text-white capitalize cursor-pointer"
+        aria-label="Contact support"
+      >
+        contact us
+      </button>
+    </div>
+  </div>
+</section>

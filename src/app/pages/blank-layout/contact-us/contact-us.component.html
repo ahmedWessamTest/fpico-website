@@ -1,0 +1,94 @@
+<section class="text-capitalize my-5" aria-labelledby="contact-us-title">
+  <div class="container mx-auto text-white">
+    <div class="flex flex-wrap justify-center">
+      <div class="w-full flex flex-wrap">
+        <div class="w-full lg:w-1/2">
+          <div>
+            <header class="flex items-center gap-2">
+              <img
+                width="130"
+                height="130"
+                src="/images/DownloadSection/logo-light.webp"
+                alt="FPICO"
+                fetchpriority="high"
+                loading="eager"
+                class="aspect-square object-contain"
+              />
+              <h1 id="contact-us-title">
+                <span class="text-main text-[45px]">{{
+                  "Pages.contact-us-page.title" | translate
+                }}</span>
+                <span class="flex items-center gap-2">
+                  <span class="text-[45px]">{{
+                    "Pages.contact-us-page.title02" | translate
+                  }}</span>
+                  <div class="text-[13px] text-lighter">
+                    <span class="block">
+                      {{ "Pages.contact-us-page.title-desc01" | translate }}
+                    </span>
+                    <span class="block">
+                      {{ "Pages.contact-us-page.title-desc02" | translate }}
+                    </span>
+                  </div>
+                </span>
+              </h1>
+            </header>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 relative flex justify-center">
+          <div class="flex-grow-1 w-full">
+            <div
+              class="p-5 py-12 bg-third top-0 start-50 form_Wrapper rounded-xl"
+            >
+              <div class="form_container">
+                <app-contact-us-form></app-contact-us-form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="w-full">
+        <div class="my-5">
+          <img
+            loading="lazy"
+            class="w-full h-auto"
+            src="/images/contact_us_page/hero_header.png"
+            alt="FPICO"
+            width="1920"
+            height="1080"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="my-7">
+      <h3 class="text-lighter text-[40px] font-semibold leading-none mb-4">
+        {{ "Pages.contact-us-page.map-section.title03" | translate }}
+        <span class="text-white">{{
+          "Pages.contact-us-page.map-section.title02" | translate
+        }}</span>
+        {{ "Pages.contact-us-page.map-section.title" | translate }}
+      </h3>
+      <div class="flex items-center gap-2">
+        <h4 class="text-white text-[40px] font-semibold">
+          {{ "Pages.contact-us-page.map-section.title04" | translate }}
+        </h4>
+        <button
+          class="cursor-pointer btn-main inline-flex items-center justify-center px-6 py-2 font-medium text-white"
+          [routerLink]="[
+            '/',
+            languageService.selectedLanguage$ | async,
+            'services'
+          ]"
+          [attr.aria-label]="
+            'Pages.contact-us-page.map-section.button' | translate
+          "
+        >
+          {{ "Pages.contact-us-page.map-section.button" | translate }}
+        </button>
+      </div>
+    </div>
+    <div>
+      <app-contact-us-map></app-contact-us-map>
+    </div>
+  </div>
+</section>

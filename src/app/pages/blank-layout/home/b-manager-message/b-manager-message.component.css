@@ -1,0 +1,28 @@
+.manager_image {
+  bottom: 4px;
+  left: 25px;
+}
+.master_message {
+  background-image: url("/images/hero/Projects_Logo_1.webp");
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.manager_title {
+  background-color: #303030;
+  width: fit-content;
+  right: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .manager_title {
+    right: 0;
+  }
+}
+
+.rotateImage {
+  transform: rotateY(180deg);
+}
+
+p {
+  text-align: justify;
+}

@@ -1,0 +1,74 @@
+<section class="capitalize" aria-labelledby="projects-title">
+  <div class="container mx-auto text-center">
+    <header class="mb-4">
+      <h2
+        id="projects-title"
+        class="text-white"
+        [innerHTML]="
+          'Pages.Home.our-projects-section.title' | translate | safeHtml
+        "
+      ></h2>
+      <p class="text-lighter">
+        {{ "Pages.Home.our-projects-section.title-desc" | translate }}
+        <span class="block">{{
+          "Pages.Home.our-projects-section.title-desc02" | translate
+        }}</span>
+      </p>
+    </header>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      @for (project of Project(); track project.id) {
+      <div>
+        <a
+          [routerLink]="[
+            '/',
+            languageService.selectedLanguage$ | async,
+            'projects-details',
+            project.id
+          ]"
+          href="#"
+          class="cursor-pointer"
+          [attr.aria-label]="
+            isRTL()
+              ? 'View details of ' + project.ar_service_title
+              : 'View details of ' + project.en_service_title
+          "
+        >
+          <div
+            class="project-card relative bg-transparent rounded-xl overflow-hidden"
+          >
+            <div class="aspect-[4/3] w-full">
+              <img
+                loading="lazy"
+                class="w-full h-full object-cover rounded-[10px]"
+                [src]="
+                  WEB_SITE_BASE_URL_IMAGE + 'service/' + project.main_image
+                "
+                [alt]="
+                  isRTL()
+                    ? 'تصوير لخدمة ' + project.ar_service_title
+                    : 'Image of ' + project.en_service_title + ' service'
+                "
+                width="400"
+                height="300"
+              />
+            </div>
+            <div
+              class="project-overlay absolute inset-0 w-full h-full flex justify-center items-center bg-black/50 transition-opacity duration-300"
+            >
+              @if (isRTL()) {
+              <h3 class="text-white">
+                {{ project.ar_service_title | translate }}
+              </h3>
+              }@else {
+              <h3 class="text-white">
+                {{ project.en_service_title | translate }}
+              </h3>
+              }
+            </div>
+          </div>
+        </a>
+      </div>
+      }
+    </div>
+  </div>
+</section>

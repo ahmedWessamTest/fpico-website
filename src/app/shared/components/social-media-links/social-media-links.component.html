@@ -1,0 +1,89 @@
+@if (allLinks) {
+<ul class="flex items-center space-x-2">
+  @if (allLinks.contact.face_link) {
+  <li>
+    <a
+      [href]="allLinks.contact.face_link"
+      target="_blank"
+      aria-label="Visit FPICO on Facebook"
+      class="flex items-center justify-center w-[18px] h-[18px] hover:opacity-80 transition-opacity">
+      <img
+        loading="lazy"
+        src="/images/social_media_icons/facebook.png"
+        alt="Follow FPICO on Facebook"
+        class="w-full h-full object-contain" />
+    </a>
+  </li>
+  } @if (allLinks.contact.insta_link) {
+  <li>
+    <a
+      [href]="allLinks.contact.insta_link"
+      target="_blank"
+      aria-label="Visit FPICO on Instagram"
+      class="flex items-center justify-center w-[18px] h-[18px] hover:opacity-80 transition-opacity">
+      <img
+        loading="lazy"
+        src="/images/social_media_icons/instagram.png"
+        alt="Follow FPICO on Instagram"
+        class="w-full h-full object-contain" />
+    </a>
+  </li>
+  } @if (allLinks.contact.tweet_link) {
+  <li>
+    <a
+      [href]="allLinks.contact.tweet_link"
+      target="_blank"
+      aria-label="Visit FPICO on Twitter"
+      class="flex items-center justify-center w-[18px] h-[18px] hover:opacity-80 transition-opacity">
+      <img
+        loading="lazy"
+        src="/images/social_media_icons/x.png"
+        alt="Follow FPICO on Twitter"
+        class="w-full h-full object-contain" />
+    </a>
+  </li>
+  } @if (allLinks.contact.snap_link) {
+  <li>
+    <a
+      [href]="allLinks.contact.snap_link"
+      target="_blank"
+      aria-label="Visit FPICO on Snapchat"
+      class="flex items-center justify-center w-[18px] h-[18px] hover:opacity-80 transition-opacity">
+      <img
+        loading="lazy"
+        src="/images/social_media_icons/snapchat.png"
+        alt="Follow FPICO on Snapchat"
+        class="w-full h-full object-contain" />
+    </a>
+  </li>
+  } @if (allLinks.contact.watus_link) {
+  <li>
+    <a
+      [href]="allLinks.contact.watus_link"
+      target="_blank"
+      aria-label="Contact FPICO on WhatsApp"
+      class="flex items-center justify-center w-[18px] h-[18px] hover:opacity-80 transition-opacity">
+      <img
+        loading="lazy"
+        src="/images/social_media_icons/whatsapp.png"
+        alt="Message FPICO on WhatsApp"
+        class="w-full h-full object-contain" />
+    </a>
+  </li>
+  } @if (allLinks.contact.linked_link) {
+  <li>
+    <a
+      [href]="allLinks.contact.linked_link"
+      target="_blank"
+      aria-label="Visit FPICO on LinkedIn"
+      class="flex items-center justify-center w-[18px] h-[18px] hover:opacity-80 transition-opacity">
+      <img
+        loading="lazy"
+        src="/images/social_media_icons/linkedin.svg"
+        alt="Follow FPICO on LinkedIn"
+        class="w-full h-full object-contain" />
+    </a>
+  </li>
+  }
+</ul>
+}

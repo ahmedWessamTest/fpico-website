@@ -1,0 +1,124 @@
+<section aria-labelledby="hero-title" class="relative">
+  <h1 id="hero-title" class="sr-only">
+    FPICO - Leading Construction and Development Company
+  </h1>
+  <div class="container mx-auto whitespace-nowrap overflow-hidden">
+    <div
+      [class]="{
+        'lg:flex-row-reverse': isRTL,
+        'lg:flex-row': !isRTL,
+        'md:text-start': !isRTL,
+        'md:text-end': isRTL,
+      }"
+      class="flex flex-col text-center items-center gap-3 justify-center w-4/5 mx-auto min-h-[80px]"
+    >
+      <h2 class="!text-[16px] text-lighter font-normal capitalize">
+        <p class="block mb-0 text-start">
+          {{ "Pages.Home.hero-section.col01.T01" | translate }}
+        </p>
+        {{ "Pages.Home.hero-section.col01.T02" | translate }}
+        <span class="text-white">{{
+          "Pages.Home.hero-section.col01.T03" | translate
+        }}</span>
+      </h2>
+
+      <h3 class="min-h-[45px]">
+        <span class="text-main text-[56px] font-semibold capitalize"
+          >{{ "Pages.Home.hero-section.col01.main01" | translate }}
+        </span>
+        <span class="text-white text-[56px] font-semibold capitalize">{{
+          "Pages.Home.hero-section.col01.main02" | translate
+        }}</span>
+      </h3>
+    </div>
+    <div
+      [class]="{
+        'lg:flex-row-reverse': isRTL,
+        'lg:flex-row': !isRTL,
+        'md:text-start': !isRTL,
+        'md:text-end': isRTL,
+      }"
+      class="flex flex-col text-center items-center gap-4 justify-end w-3/5 mx-auto min-h-[100px]"
+    >
+      <h2 class="flex gap-3 min-h-[45px]">
+        <span class="text-white font-semibold capitalize text-[56px]">{{
+          "Pages.Home.hero-section.col02.main01" | translate
+        }}</span>
+        <span class="text-main font-semibold capitalize text-[56px]"
+          >{{ "Pages.Home.hero-section.col02.main02" | translate }}
+        </span>
+      </h2>
+      <h3 class="text-gray-400 font-normal capitalize min-h-[45px]">
+        <span class="block !text-[16px]"
+          >{{ "Pages.Home.hero-section.col02.T01" | translate }}
+        </span>
+        <span class="block !text-[16px]">{{
+          "Pages.Home.hero-section.col02.T02" | translate
+        }}</span>
+        <span>{{ "Pages.Home.hero-section.col02.T03" | translate }}</span>
+      </h3>
+    </div>
+    <div class="relative pt-24 text-center aspect-[1.8/1]">
+      <!-- Rush Logo - Lazy loaded as it's not critical -->
+      <div
+        class="absolute z-50 w-[250px] h-[100px] left-1/2 top-0 -translate-x-1/2"
+      >
+        <img
+          src="/images/rush.webp"
+          srcset="
+            /images/rush-300.webp 300w,
+            /images/rush-600.webp 600w,
+            /images/rush.webp     900w
+          "
+          sizes="(max-width: 768px) 250px, (max-width: 1200px) 500px, 750px"
+          width="250"
+          height="100"
+          class="w-full h-full object-contain"
+          alt="FPICO rush logo"
+          fetchpriority="high"
+          loading="eager"
+        />
+      </div>
+
+      <!-- Main Hero Image - Priority loaded as it's the LCP element -->
+      <div class="w-full h-full">
+        @if (isFoundationDay) {
+          <img
+            src="/images/foundation-day/foundation-day-hero.png"
+            class="text-center inline-block"
+            alt=""
+          />
+        }
+        <img
+          src="/images/hero/Kingdom_Centre_1200x500.webp"
+          srcset="
+            /images/hero/Kingdom_Centre_600x250.webp   600w,
+            /images/hero/Kingdom_Centre_900x400.webp   900w,
+            /images/hero/Kingdom_Centre_1200x500.webp 1200w
+          "
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px"
+          width="1200"
+          height="500"
+          class="w-full h-full object-cover"
+          fetchpriority="high"
+          loading="eager"
+          alt="FPICO Kingdom Centre project showcase"
+        />
+      </div>
+
+      <!-- Background Logo - Lazy loaded as it's decorative -->
+      <div class="absolute top-0 -left-[115px] z-10 w-[650px] h-[200px]">
+        <img
+          src="/images/hero/Projects_Logo_1.webp"
+          width="650"
+          height="200"
+          class="w-full h-full"
+          alt="FPICO Projects Logo"
+          aria-hidden="true"
+          fetchpriority="high"
+          loading="eager"
+        />
+      </div>
+    </div>
+  </div>
+</section>

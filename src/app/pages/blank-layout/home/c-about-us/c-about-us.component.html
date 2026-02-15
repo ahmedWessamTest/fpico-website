@@ -1,0 +1,93 @@
+@if (aboutData) {
+<section aria-labelledby="about-us-title">
+  <h2 id="about-us-title" class="sr-only">About Us</h2>
+  <div class="container mx-auto text-white capitalize">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="relative flex justify-center items-center">
+        <div>
+          <div>
+            <h2 class="mb-20">
+              <span class="rounded p-3 text-lg bg-[#303030]">{{
+                aboutData.aboutUsContent.mainTitle | translate
+              }}</span>
+            </h2>
+            <h3 class="mb-3">
+              @if (isRTL()) {
+              {{ AboutData().ar_stand_for_title }}
+              }@else {
+              {{ AboutData().en_stand_for_title }}
+              }
+            </h3>
+            <p class="text-lighter">
+              @if (isRTL()) {
+              {{ AboutData().ar_stand_for_text }}
+              }@else {
+              {{ AboutData().en_stand_for_text }}
+              }
+            </p>
+          </div>
+          <img
+            loading="lazy"
+            [class]="{ 'left-0': isRTL(), 'right-0': !isRTL() }"
+            class="absolute top-0 m-3"
+            role="presentation"
+            src="/images/DownloadSection/logo-light.webp"
+          />
+        </div>
+      </div>
+      <div class="flex justify-center items-center">
+        <div>
+          <video
+            aria-hidden="true"
+            #videoElement
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            class="video-like-image"
+          >
+            <source src="/images/DownloadSection/1VF.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="relative flex justify-center items-center flex-col">
+        <div>
+          <div class="mb-20">
+            <h3 class="mb-3">
+              @if (isRTL()) {
+              {{ AboutData().ar_mission_title }}
+              }@else {
+              {{ AboutData().en_mission_title }}
+              }
+            </h3>
+            <p class="text-lighter">
+              @if (isRTL()) {
+              {{ AboutData().ar_mission_text }}
+              }@else {
+              {{ AboutData().en_mission_text }}
+              }
+            </p>
+          </div>
+          <div>
+            <h3 class="mb-3">
+              @if (isRTL()) {
+              {{ AboutData().ar_vision_title }}
+              }@else {
+              {{ AboutData().en_vision_title }}
+              }
+            </h3>
+            <p class="text-lighter">
+              @if (isRTL()) {
+              {{ AboutData().ar_stand_for_text }}
+              }@else {
+              {{ AboutData().en_stand_for_text }}
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+}

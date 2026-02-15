@@ -1,0 +1,22 @@
+.images_carousel {
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+::ng-deep .owl-dot-text span {
+  transition: all 0.5s ease !important;
+  background-color: #ccc !important;
+  border-radius: 50% !important;
+  margin: 6px 3px !important;
+}
+
+::ng-deep .owl-dot-text.ng-star-inserted.active span {
+  background-color: var(--main-color) !important;
+  width: 30px !important;
+  border-radius: 10px !important;
+}
+.title_card ::ng-deep * {
+  font-size: 18px !important;
+}

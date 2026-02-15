@@ -1,0 +1,28 @@
+<div class="flex flex-wrap justify-between gap-3">
+  <div class="w-full md:w-[49%] order-2 md:order-1">
+    <div>
+      <div class="p-3">
+        <h2 class="!text-[28px] mb-4">
+          {{ "Page.about-us.form.title" | translate }}
+        </h2>
+        <p class="text-lighter mb-4">
+          {{ "Page.about-us.form.desc" | translate }}
+        </p>
+      </div>
+      <div class="bg-fourth border-radius-10">
+        <app-contact-us-form></app-contact-us-form>
+      </div>
+    </div>
+  </div>
+  <!-- s -->
+  <div class="w-full md:w-[49%] order-1 md:order-2">
+    <div class="w-full h-full">
+      <img
+        loading="lazy"
+        class="w-full h-full object-fit-cover"
+        src="/images/about-us-page/about-us-form-image.webp"
+        alt="FPICO"
+      />
+    </div>
+  </div>
+</div>

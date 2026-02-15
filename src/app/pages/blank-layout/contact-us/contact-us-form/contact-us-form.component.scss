@@ -1,0 +1,85 @@
+// Form controls base styles
+.form-control,
+.form-select,
+::ng-deep {
+  .form-control,
+  .form-select,
+  .iti,
+  #country-search-box,
+  #country-search-box:focus,
+  #country-search-box:active,
+  #country-search-box:focus-visible {
+    background-color: #373737;
+    color: white;
+    border-color: transparent;
+    width: 100%;
+    padding-block: 10px;
+    border-radius: 10px;
+    outline: none;
+  }
+}
+
+// Phone input specific styles
+::ng-deep {
+  .iti {
+    padding: 0;
+  }
+
+  .iti__country-list,
+  .country-dropdown {
+    max-width: 350px;
+    background-color: #373737;
+    color: white;
+    overflow-x: hidden;
+  }
+
+  .iti__country-list::-webkit-scrollbar-thumb {
+    background-color: #000;
+    box-shadow: 0px 0px 10px 0px #eeeeee8c inset;
+    border-radius: 100vh;
+  }
+
+  .iti__country-list::-webkit-scrollbar {
+    width: 4px;
+    background-color: #fff;
+    border-left: 2px solid #eee;
+    box-shadow: 0px 0px 21px 0px #0003 inset;
+  }
+}
+
+// Placeholder styles
+::ng-deep {
+  input.form-control::placeholder,
+  .form-select::placeholder {
+    color: #828282;
+    text-transform: capitalize;
+  }
+}
+
+// Select styles
+.form-select {
+  background-image: url("/images/contact_us_page/arrow_down.png");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+}
+
+.form-select option {
+  color: white;
+}
+
+select option:disabled {
+  color: gray;
+}
+
+// Validation styles
+.form-control.is-invalid,
+.was-validated .form-control:invalid,
+.form-select.is-invalid,
+.was-validated .form-select:invalid,
+::ng-deep {
+  .form-control.is-invalid,
+  .was-validated .form-control:invalid {
+    background-image: none;
+  }
+}

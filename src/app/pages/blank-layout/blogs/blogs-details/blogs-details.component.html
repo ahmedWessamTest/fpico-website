@@ -1,0 +1,230 @@
+@if (blogDetails) {
+<section class="capitalize my-5 relative z-10 blog-details">
+  <!-- video -->
+  <div class="container mx-auto text-white">
+    <!-- Second Section -->
+    <div class="Details_related_images_bg">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div class="lg:col-span-8 px-4! lg:px-0">
+          <div class="grid grid-cols-1 gap-4">
+            <div class="w-full">
+              <h1 class="text-center">
+                @if (isRTL) {
+                {{ blogDetails.blog.ar_blog_title }}
+                } @else {
+                {{ blogDetails.blog.en_blog_title }}
+                }
+              </h1>
+            </div>
+            <!-- section Image -->
+            <div class="w-full">
+              <div>
+                <figure
+                  class="relative aspect-[16/9] image_border main_Image_Animation"
+                >
+                  <!-- Skeleton -->
+                  @if (!isMainImageLoaded) {
+                  <div
+                    class="absolute inset-0 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 animate-pulse rounded z-10"
+                  ></div>
+                  }
+                  <picture class="absolute inset-0">
+                    <source
+                      [srcset]="
+                        WEB_SITE_BASE_URL_IMAGE +
+                        'blogs/' +
+                        blogDetails.blog.main_image +
+                        '?w=1200'
+                      "
+                      media="(min-width: 992px)"
+                    />
+                    <source
+                      [srcset]="
+                        WEB_SITE_BASE_URL_IMAGE +
+                        'blogs/' +
+                        blogDetails.blog.main_image +
+                        '?w=768'
+                      "
+                      media="(min-width: 576px)"
+                    />
+                    <img
+                      [src]="
+                        WEB_SITE_BASE_URL_IMAGE +
+                        'blogs/' +
+                        blogDetails.blog.main_image +
+                        '?w=576'
+                      "
+                      class="w-full h-full object-cover rounded transition-opacity duration-300"
+                      [style.opacity]="isMainImageLoaded ? 1 : 0"
+                      [alt]="isRTL?blogDetails.blog.ar_blog_title:blogDetails.blog.en_blog_title"
+                      fetchpriority="high"
+                      decoding="async"
+                      width="1200"
+                      height="675"
+                      (load)="onMainImageLoad()"
+                    />
+                  </picture>
+                </figure>
+                <div class="date relative pr-3">
+                  {{ blogDetails.blog.blog_date | date : "dd/MM/yyyy" }}
+                </div>
+              </div>
+            </div>
+            <!-- section Text -->
+            <div class="w-full grid place-items-center text-justify">
+              <div class="content description text-justify text-white">
+                @if (isRTL) {
+                <div
+                  class="hase_bolet line-height-2 text-[15px] leading-loose"
+                  [innerHTML]="
+                    blogDetails.blog.ar_blog_text
+                      | removeInlineStyles
+                      | insertAd
+                      | safeHtml
+                  "
+                ></div>
+                }@else {
+                <div
+                  class="hase_bolet line-height-2 text-[15px] leading-loose"
+                  [innerHTML]="
+                    blogDetails.blog.en_blog_text
+                      | removeInlineStyles
+                      | insertAd
+                      | safeHtml
+                  "
+                ></div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-4">
+          <div class="h-full">
+            <div
+              class="grid grid-cols-2 lg:grid-cols-1 gap-4 sticky top-[50px] content-start min-h-screen lg:min-h-[100vh]"
+            >
+              <h2>المزيد من المواضيع</h2>
+              @for (blog of blogDetails.blogs | slice:0:isDesktop?5:10; track
+              blog.id) {
+              <div class="cursor-pointer">
+                <a
+                  class="text-white no-underline grid grid-cols-[140px_1fr] gap-2 items-end"
+                  [routerLink]="[
+                    '/',
+                    languageService.selectedLanguage$ | async,
+                    'blogs',
+                    blog.ar_slug
+                  ]"
+                >
+                  <figure
+                    class="relative aspect-[7/4] image_border main_Image_Animation p-2 flex-shrink-0"
+                  >
+                    <!-- Skeleton -->
+                    @if (!isRelatedImageLoaded[blog.id]) {
+                    <div
+                      class="absolute inset-0 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 animate-pulse rounded z-10"
+                    ></div>
+                    }
+                    <!-- Image -->
+                    <picture class="absolute inset-0">
+                      <source
+                        [srcset]="
+                          WEB_SITE_BASE_URL_IMAGE +
+                          'blogs/' +
+                          blog.main_image +
+                          '?w=280'
+                        "
+                        media="(min-width: 576px)"
+                      />
+                      <img
+                        loading="lazy"
+                        fetchpriority="low"
+                        decoding="async"
+                        [src]="
+                          WEB_SITE_BASE_URL_IMAGE +
+                          'blogs/' +
+                          blog.main_image +
+                          '?w=140'
+                        "
+                        class="w-full h-full object-cover rounded transition-opacity duration-300"
+                        [style.opacity]="isRelatedImageLoaded[blog.id] ? 1 : 0"
+                        [alt]="isRTL?blog.ar_blog_title:blog.en_blog_title"
+                        width="140"
+                        height="80"
+                        (load)="onRelatedImageLoad(blog.id)"
+                      />
+                    </picture>
+                  </figure>
+
+                  <h2 class="text-center w-fit mb-4 !text-[13px] !line-clamp-2">
+                    @if (isRTL) {
+                    {{ blog.ar_blog_title }}
+                    } @else {
+                    {{ blog.en_blog_title }}
+                    }
+                  </h2>
+                </a>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+@if (isRTL) {
+<div
+  class="test-meta-tags bg-red-500"
+  [innerHtml]="blogDetails.blog.ar_script_text | safeHtml"
+></div>
+} @else {
+<div
+  class="test-meta-tags bg-red-500"
+  [innerHtml]="blogDetails.blog.en_script_text | safeHtml"
+></div>
+} } @else {
+<!-- Skeleton Loading State -->
+<section class="capitalize my-5 relative z-10 blog-details">
+  <div class="container mx-auto">
+    <div class="Details_related_images_bg">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+        <div class="lg:col-span-8">
+          <div class="grid grid-cols-1 gap-4">
+            <!-- Main Image Skeleton -->
+            <div class="w-full">
+              <figure class="aspect-[16/9] image_border main_Image_Animation">
+                <div
+                  class="absolute inset-0 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 animate-pulse rounded"
+                ></div>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related Blogs Skeleton -->
+        <div class="lg:col-span-4">
+          <div class="h-full">
+            <div
+              class="grid grid-cols-2 lg:grid-cols-1 gap-4 sticky top-[50px]"
+            >
+              @for (item of [1,2,3,4,5]; track item) {
+              <div class="grid grid-cols-[140px_1fr] gap-2">
+                <figure
+                  class="relative aspect-[7/4] image_border main_Image_Animation p-2 flex-shrink-0"
+                >
+                  <div
+                    class="absolute inset-0 bg-gradient-to-r from-gray-300 via-gray-200 to-gray-300 animate-pulse rounded"
+                  ></div>
+                </figure>
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+}

@@ -1,0 +1,81 @@
+<section class="overflow-hidden" aria-label="Manager's Message">
+  <div class="container mx-auto my-20">
+    <div class="flex flex-wrap justify-evenly">
+      <div class="lg:w-5/12 xl:w-4/12">
+        <div class="relative">
+          <div class="relative z-20 mb-4 ml-4 aspect-[4/5] w-[400px]">
+            <img
+              loading="lazy"
+              [class]="{ rotateImage: isRTL() }"
+              class="h-full w-full object-cover rounded-[10px]"
+              src="/images/hero/master.png"
+              alt="fipco manager"
+            />
+          </div>
+          <span
+            class="absolute bottom-0 left-0 mb-4 ml-4 z-10 h-[449px] w-[379px] border-[3px] border-[#e7bf8c] rounded-[10px]"
+          ></span>
+          <span
+            class="absolute bottom-0 left-0 -z-10 h-[449px] w-[379px] bg-[#2b2b2b] rounded-[10px]"
+          ></span>
+        </div>
+      </div>
+      <!-- <div
+        class="col-lg-7 col-xl-7 mt-5 master_message"
+        [innerHTML]="'home.message.firsttitle' | translate"
+      ></div> -->
+      <div class="lg:w-7/12 xl:w-7/12 mt-20 master_message">
+        <div class="capitalize pt-2">
+          <h2 class="text-white md:ml-4 mb-2">
+            {{ "home.chairman.message" | translate }}
+          </h2>
+          <div class="rounded-[10px] p-3 text-xl relative z-30 manager_title">
+            <h3 class="text-white">
+              @if (isRTL()) {
+              <span class="text-main">{{
+                "chairmanMessage.title.desc" | translate
+              }}</span>
+              {{ ChairMessage()?.ar_name }}
+              }@else {
+              <span class="text-primary">{{
+                "chairmanMessage.title.desc" | translate
+              }}</span>
+              {{ ChairMessage()?.en_name }}
+              }
+            </h3>
+
+            <div class="text-lighter">
+              @if (isRTL()) {
+              {{ ChairMessage()?.ar_small_title }}
+              }@else {
+              {{ ChairMessage()?.en_small_title }}
+              }
+            </div>
+          </div>
+          <div class="md:ml-20">
+            <h4 class="text-white my-3">
+              <div class="text-lighter">
+                @if (isRTL()) {
+                {{ ChairMessage()?.ar_title }}
+                }@else {
+                {{ ChairMessage()?.en_title }}
+                }
+              </div>
+            </h4>
+            @if (isRTL()) {
+            <div
+              class="text-lighter"
+              [innerHTML]="ChairMessage()?.ar_text |safeHtml"
+            ></div>
+            }@else {
+            <div
+              class="text-lighter"
+              [innerHTML]="ChairMessage()?.en_text | safeHtml"
+            ></div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

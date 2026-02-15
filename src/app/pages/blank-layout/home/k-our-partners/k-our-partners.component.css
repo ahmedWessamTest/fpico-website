@@ -1,0 +1,23 @@
+.images_holder {
+  position: relative;
+  z-index: 1;
+}
+
+.images_holder::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background: rgba(66, 64, 68, 0.4);
+  z-index: -1;
+}
+
+.rtl_after_position::after {
+  right: 0;
+  left: -150%;
+}
+
+.ltr_after_position::after {
+  left: 0;
+  right: -150%;
+}

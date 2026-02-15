@@ -1,0 +1,50 @@
+<section
+  class="capitalize mx-auto my-4 md:my-20"
+  aria-labelledby="clients-title"
+>
+  <div class="container mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <div class="md:col-span-4">
+        <header
+          id="clients-title"
+          [class]="{ 'text-lg-end': isRTL(), 'text-lg-start': !isRTL() }"
+          class=""
+          [innerHTML]="'home.clients.text' | translate | safeHtml"
+        ></header>
+        @if (isFoundationDay) {
+          <img
+            src="/images/foundation-day/decoration-circle.png"
+            alt=""
+            role="presentation"
+            class="mx-auto founding-day-animate-circle mt-5 lg:mt-[312px]"
+          />
+        }
+      </div>
+      <div class="md:col-span-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-3">
+          @for (item of Client(); track item.id) {
+            <div
+              class="text-center flex justify-center items-center md:block rounded-lg"
+            >
+              <div
+                class="image_container w-full h-full flex justify-center items-center bg-white p-2 rounded-[50px]"
+              >
+                <img
+                  [src]="WEB_SITE_BASE_URL_IMAGE + 'Partner/' + item.main_image"
+                  [alt]="
+                    isRTL() ? item.ar_partner_title : item.en_partner_title
+                  "
+                  [width]="imageSize()"
+                  [height]="imageSize()"
+                  class="block mb-3 object-contain w-full"
+                  loading="lazy"
+                  priority="false"
+                />
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

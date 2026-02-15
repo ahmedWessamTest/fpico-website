@@ -1,0 +1,92 @@
+/* Image animation */
+.lightBoxContnet {
+  animation: animation_slider 0.5s forwards;
+}
+
+.lightBoxContnet img {
+  min-width: 500px;
+}
+
+/* Animation keyframes */
+@keyframes animation_slider {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Image hover effect */
+.imageContainer-hover {
+  position: relative;
+  border-radius: 0.625rem;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.imageContainer-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.imageContainer-hover:hover::after {
+  opacity: 0.5;
+}
+
+/* Border and animation for main image */
+.image-border {
+  box-shadow: 0 0 0 8px var(--main-color) inset;
+  border-radius: 0.625rem;
+}
+
+.main-image-animation img {
+  transition: transform 0.5s ease;
+}
+
+.main-image-animation:hover img {
+  transform: scale(1.05);
+}
+
+/* Owl carousel customization */
+:host ::ng-deep .owl-dot-text span {
+  transition: all 0.5s ease !important;
+  background-color: #ccc !important;
+  border-radius: 50% !important;
+  margin: 6px 3px !important;
+}
+
+:host ::ng-deep .owl-dot-text.ng-star-inserted.active span {
+  background-color: var(--main-color) !important;
+  width: 30px !important;
+  border-radius: 10px !important;
+}
+
+:host ::ng-deep .owl-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+:host ::ng-deep .owl-prev,
+:host ::ng-deep .owl-next {
+  background-color: var(--main-color) !important;
+  color: #000 !important;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+:host ::ng-deep .owl-prev:hover,
+:host ::ng-deep .owl-next:hover {
+  background-color: var(--main-color);
+}
+
+:host ::ng-deep p {
+  margin-bottom: 16px;
+}

@@ -1,0 +1,36 @@
+<section class="capitalize my-20" aria-labelledby="partners-title">
+  <div class="container mx-auto">
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-4/12 px-1 mb-4 md:mb-0">
+        <header
+          id="partners-title"
+          [class]="{ 'lg:text-right': isRTL(), 'lg:text-left': !isRTL() }"
+          [innerHTML]="'home.partners.text' | translate | safeHtml"
+          class="text-center"
+        ></header>
+      </div>
+      <div
+        [class]="{
+          images_holder: isAddBackgroundColor(),
+          rtl_after_position: isRTL(),
+          ltr_after_position: !isRTL()
+        }"
+        class="images_holder py-3 w-full md:w-8/12 flex justify-between mt-0 flex-col items-center lg:flex-row"
+      >
+        @for (item of Partner(); track item.id) {
+        <div class="w-8/12 md:w-3/12">
+          <img
+            loading="lazy"
+            [src]="WEB_SITE_BASE_URL_IMAGE + 'Partner/' + item.main_image"
+            class="block w-full mx-auto mb-3 md:mb-0"
+            [alt]="isRTL() ? item.ar_partner_title : item.en_partner_title"
+            width="200"
+            height="100"
+          />
+        </div>
+        }
+      </div>
+      <div class="w-full md:w-2/12"></div>
+    </div>
+  </div>
+</section>

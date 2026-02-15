@@ -1,0 +1,84 @@
+.btn-main,
+a.btn-main:focus {
+  background-color: var(--main-color) !important;
+  color: var(--fourth-color) !important;
+  border-radius: var(--border-radius) !important;
+  text-decoration: none !important;
+}
+
+.btn-secondary {
+  background-color: var(--text-light) !important;
+  color: var(--text-lighter) !important;
+  border-radius: var(--border-radius);
+  text-decoration: none !important;
+}
+
+.btn-third {
+  background-color: #1c1a1a !important;
+  color: white !important;
+  border-radius: 5px;
+  text-decoration: none !important;
+  padding: 20px 40px;
+}
+
+.btn-show-all {
+  text-decoration: underline;
+  color: #777474;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+button.btn-main:hover,
+a.btn-main:hover {
+  background-color: var(--main-color) !important;
+  border: none !important;
+}
+
+button,
+button:focus,
+a,
+a:focus {
+  border: none !important;
+}
+
+.btn-animation {
+  transition: 0.5s all;
+  outline: 5px solid transparent;
+}
+
+.btn-animation:hover {
+  outline: 5px solid #e7c08c7b;
+  color: black !important;
+  box-shadow: -1px 1px 12px 5px #e7c08c7b;
+}
+
+.btn-pages {
+  background-color: #2b2b2b;
+  border-radius: 100px;
+  color: white;
+  &:hover {
+    background-color: #2b2b2b !important;
+    color: white !important;
+  }
+}
+
+.btn-pages:hover {
+  background-color: #2b2b2b !important;
+  color: white !important;
+}
+
+.btn-outline-main,
+.btn-outline-main:focus {
+  border: 1px solid var(--main-color) !important;
+  color: white !important;
+  min-width: 300px;
+  padding-block: 15px;
+  border-radius: 10px;
+  font-weight: 400;
+  transition: 0.5s all;
+}
+
+.btn-outline-main:hover {
+  background-color: var(--main-color) !important;
+  color: black !important;
+}

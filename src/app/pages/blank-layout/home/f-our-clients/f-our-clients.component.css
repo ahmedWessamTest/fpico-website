@@ -1,0 +1,39 @@
+.image_container {
+  height: 300px !important;
+}
+
+@media screen and (min-width: 992px) {
+  .image_container {
+    height: 170px !important;
+  }
+}
+.founding-day-animate-circle {
+  animation: circleSpin 10s ease-in-out forwards;
+}
+
+/* Animation */
+@keyframes circleSpin {
+  /* 🔹 3 لفات متقطعة */
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(360deg);
+  }
+  40% {
+    transform: rotate(720deg);
+  }
+  60% {
+    transform: rotate(1080deg);
+  }
+
+  /* 🔹 لفة أخيرة ناعمة */
+  80% {
+    transform: rotate(1440deg);
+  }
+
+  /* 🔹 ترجع تاني */
+  100% {
+    transform: rotate(0deg);
+  }
+}

@@ -1,0 +1,119 @@
+<section class="my-20" id="works">
+  <div class="container mx-auto capitalize">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-3">
+      <!-- <div [innerHTML]="'home.ourwork.section' | translate | safeHtml"></div> -->
+      <div class="lg:col-span-8">
+        <h2 class="mb-4">
+          <span class="text-primary">{{ "arrigation.title" | translate }}</span>
+          <span class="text-white"> {{ "Systems.title" | translate }}</span>
+        </h2>
+        <div class="grid grid-cols-2">
+          <div>
+            <div class="mb-3">
+              @if (isRTL) {
+              <h3 class="text-white">{{ ArrigationSystem[0].ar_title }}</h3>
+              }@else {
+              <h3 class="text-white">{{ ArrigationSystem[0].en_title }}</h3>
+              } @if (isRTL) {
+              <ul
+                class="text-lighter m-0 pl-1"
+                [innerHTML]="ArrigationSystem[0].ar_text | safeHtml"
+              ></ul>
+              }@else {
+              <ul
+                class="text-lighter m-0 pl-1"
+                [innerHTML]="ArrigationSystem[0].en_text | safeHtml"
+              ></ul>
+              }
+            </div>
+            <div class="mb-3">
+              @if (isRTL) {
+              <h3 class="text-white">{{ ArrigationSystem[1].ar_title }}</h3>
+              } @else {
+              <h3 class="text-white">{{ ArrigationSystem[1].en_title }}</h3>
+              } @if (isRTL) {
+              <ul
+                class="text-lighter m-0 pl-1"
+                [innerHTML]="ArrigationSystem[1].ar_text | safeHtml"
+              ></ul>
+              } @else {
+              <ul
+                class="text-lighter m-0 pl-1"
+                [innerHTML]="ArrigationSystem[1].en_text | safeHtml"
+              ></ul>
+              }
+            </div>
+            <div class="mb-3">
+              @if (isRTL) {
+              <h3 class="text-white">{{ ArrigationSystem[2].ar_title }}</h3>
+              } @else {
+              <h3 class="text-white">{{ ArrigationSystem[2].en_title }}</h3>
+              } @if (isRTL) {
+              <ul
+                class="text-lighter m-0 pl-1"
+                [innerHTML]="ArrigationSystem[2].ar_text | safeHtml"
+              ></ul>
+              } @else {
+              <ul
+                class="text-lighter m-0 pl-1"
+                [innerHTML]="ArrigationSystem[2].en_text | safeHtml"
+              ></ul>
+              }
+            </div>
+          </div>
+          <div>
+            <div class="mb-5">
+              @if (isRTL) {
+              <h3 class="text-white">{{ ArrigationSystem[3].ar_title }}</h3>
+              } @else {
+              <h3 class="text-white">{{ ArrigationSystem[3].en_title }}</h3>
+              } @if (isRTL) {
+              <ul
+                class="text-lighter m-0 pl-1"
+                [innerHTML]="ArrigationSystem[3].ar_text | safeHtml"
+              ></ul>
+              } @else {
+              <ul
+                class="text-lighter m-0 pl-1"
+                [innerHTML]="ArrigationSystem[3].en_text | safeHtml"
+              ></ul>
+              }
+            </div>
+            <div class="mb-3">
+              @if (isRTL) {
+              <h3 class="text-white">{{ ArrigationSystem[4].ar_title }}</h3>
+              } @else {
+              <h3 class="text-white">{{ ArrigationSystem[4].en_title }}</h3>
+              } @if (isRTL) {
+              <ul
+                class="text-lighter m-0 pl-1"
+                [innerHTML]="ArrigationSystem[4].ar_text | safeHtml"
+              ></ul>
+              } @else {
+              <ul
+                class="text-lighter m-0 pl-1"
+                [innerHTML]="ArrigationSystem[4].en_text | safeHtml"
+              ></ul>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-4 flex justify-center items-center">
+        <div class="image_holder">
+          <!-- <video
+            #videoElement
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="metadata"
+            class="video-like-image"
+          >
+            <source src="/images/DownloadSection/3VF.mp4" type="video/mp4" />
+          </video> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
