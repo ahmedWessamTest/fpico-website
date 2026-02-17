@@ -8,12 +8,11 @@
   }
 }
 .founding-day-animate-circle {
-  animation: circleSpin 10s ease-in-out forwards;
+  animation: circleSpin 10s ease-in-out forwards infinite;
 }
 
 /* Animation */
 @keyframes circleSpin {
-  /* 🔹 3 لفات متقطعة */
   0% {
     transform: rotate(0deg);
   }
@@ -27,12 +26,10 @@
     transform: rotate(1080deg);
   }
 
-  /* 🔹 لفة أخيرة ناعمة */
   80% {
     transform: rotate(1440deg);
   }
 
-  /* 🔹 ترجع تاني */
   100% {
     transform: rotate(0deg);
   }
